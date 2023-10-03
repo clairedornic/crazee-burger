@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css'
-import { Login } from './pages/Login'
+import { LoginPage } from './pages/LoginPage'
 
 function App() {
 
   return (
     <>
       <div>
-        <Login></Login>
+        <LoginPage></LoginPage>
       </div>
     </>
   )
