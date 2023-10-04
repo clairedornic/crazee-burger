@@ -3,11 +3,12 @@ import { useLocation } from "react-router-dom";
 
 export const OrderPage = () => {
     const location = useLocation();
-    const userName = location.state.userName;
+    const userName = location.state?.userName;
+    console.log(location);
 
     return (
         <div>
-            <h1>Bonjour {userName}</h1>
+            { userName ? <h1>Bonjour {userName}</h1> : <h1>Bonjour</h1> }
             <Link to={`/`}>Logout</Link>
         </div>
     )
