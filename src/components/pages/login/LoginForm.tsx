@@ -1,16 +1,22 @@
 
 import { FormEvent, useRef, useState } from "react";
+import { useNavigate  } from "react-router-dom";
 
 export const LoginForm = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const [firstname, setFirstname] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        alert(`Bonjour ${firstname}`)
         if(formRef.current){
             formRef.current.reset();
         }
+        navigate('/order', { 
+            state: {
+                userName: firstname 
+            }
+        });
     };
 
     return (
