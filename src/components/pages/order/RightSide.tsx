@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { theme } from "../../../assets/styles/theme/theme-design";
 import { Profile } from './Profile';
 
-export const RightSide: React.FC<User> = ({userName}) => {
+export const RightSide = () => {
   return (
     <RightSideStyled>
-        <Profile userName={userName}/>
+        <Profile/>
     </RightSideStyled>
   )
 }

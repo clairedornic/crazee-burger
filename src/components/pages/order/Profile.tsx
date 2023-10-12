@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 import { BsPersonCircle } from 'react-icons/bs';
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { theme } from "../../../assets/styles/theme/theme-design";
 
-export const Profile: React.FC<User> = ({userName}) => {
-  return (
-    <ProfileStyled>
-        <div className='infos-cta'>
-            <p>Hey, <span>{userName}</span></p>
-            <Link to={`/`}>Se déconnecter</Link>
-        </div>
-        <BsPersonCircle className="icon"/>
-    </ProfileStyled>
-  )
+export const Profile = () => {
+    const location = useLocation();
+    const userName = location.state?.userName;
+    
+    return (
+        <ProfileStyled>
+            <div className='infos-cta'>
+                <p>Hey, <span>{userName}</span></p>
+                <Link to={`/`}>Se déconnecter</Link>
+            </div>
+            <BsPersonCircle className="icon"/>
+        </ProfileStyled>
+    )
 }
 
 const ProfileStyled = styled.div`

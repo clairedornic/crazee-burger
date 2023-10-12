@@ -3,12 +3,12 @@ import { theme } from "../../../assets/styles/theme/theme-design";
 import { LeftSide } from './LeftSide';
 import { RightSide } from './RightSide';
 
-export const Navbar: React.FC<User> = ({userName}) => {
+export const Navbar = () => {
 
   return (
     <NavbarStyled>
         <LeftSide/>
-        <RightSide userName={userName}/>
+        <RightSide/>
     </NavbarStyled>
   )
 }
