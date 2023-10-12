@@ -35,10 +35,6 @@ const PrimaryButtonStyled = styled.button`
         pointer-events: none;
     }
 
-    icon {
-        color: ${theme.colors.white};
-    }
-
     &:hover {
         background-color: ${theme.colors.white};
         color: ${theme.colors.primary};
