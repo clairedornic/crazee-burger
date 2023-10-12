@@ -4,28 +4,23 @@ import { theme } from '../../assets/styles/theme/theme-design';
 
 export const Logo = () => {
   return (
-    <LogoElement>
+    <LogoStyled>
         <p>Crazee</p>
         <img src={logo} alt="Crazee burger avec un burger entre crazee et burger" />
         <p>Burger</p>
-    </LogoElement>
+    </LogoStyled>
   )
 }
-const LogoElement = styled.span`
+const LogoStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    max-width: 100%;
 
     p {
         font-family: Amatic;
-        font-size: 110px;
         color: ${theme.colors.logo};
         margin: 0;
-    }
-
-    img {
-        max-width: 200px;
     }
 `;
 
