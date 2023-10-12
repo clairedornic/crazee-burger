@@ -1,12 +1,13 @@
 
 import { FormEvent, useRef, useState } from "react";
 import { useNavigate  } from "react-router-dom";
-import { BsChevronRight } from 'react-icons/bs';
 import styled from 'styled-components';
 import {theme} from '../../../assets/styles/theme/theme-design'
 import { Logo } from "../../reusable-ui/Logo";
 import { TextInput } from "../../reusable-ui/TextInput";
 import { BsPersonCircle } from 'react-icons/bs';
+import { PrimaryButton } from "../../reusable-ui/PrimaryButton";
+import { BsChevronRight } from 'react-icons/bs';
 
 export const LoginForm = () => {
     const formRef = useRef<HTMLFormElement>(null);
@@ -46,10 +47,11 @@ export const LoginForm = () => {
                         Icon={<BsPersonCircle className="icon"/>}
                         required
                     />
-                    <button type="submit">
-                        <label>Accéder à mon espace</label>
-                        <BsChevronRight className="icon"></BsChevronRight>
-                    </button>
+                    <PrimaryButton
+                        type="submit"
+                        label="Accéder à mon espace"
+                        Icon={<BsChevronRight className="icon"/>}
+                    />
                 </div>
             </div>
         </Form>
@@ -104,35 +106,8 @@ const Form = styled.form`
         width: 100%;
         gap: 18px;
 
-        button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: ${theme.colors.primary};
+        .icon {
             color: ${theme.colors.white};
-            width: 100%;
-            padding: 18px 0;
-            font-family: 'Open Sans';
-            border-radius: ${theme.borderRadius.round};
-            border: 1px solid ${theme.colors.primary};
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-
-            label {
-                pointer-events: none;
-            }
-
-            icon {
-                color: ${theme.colors.white};
-            }
-
-            &:hover {
-                background-color: ${theme.colors.white};
-                color: ${theme.colors.primary};
-                border: 1px solid ${theme.colors.primary};
-                transition: all 0.2s ease-in-out;
-            }
         }
     }
 `;
