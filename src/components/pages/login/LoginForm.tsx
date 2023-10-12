@@ -1,12 +1,12 @@
 
 import { FormEvent, useRef, useState } from "react";
 import { useNavigate  } from "react-router-dom";
-import logo from '../../../assets/medias/images/logo.png';
-import arrow from '../../../assets/medias/images/arrow-right.png';
-import profil_login from '../../../assets/medias/images/profil-login.svg';
-
+import { BsChevronRight } from 'react-icons/bs';
 import styled from 'styled-components';
 import {theme} from '../../../assets/styles/theme/theme-design'
+import { Logo } from "../../reusable-ui/Logo";
+import { Input } from "../../reusable-ui/Input";
+import { BsPersonCircle } from 'react-icons/bs';
 
 export const LoginForm = () => {
     const formRef = useRef<HTMLFormElement>(null);
@@ -25,35 +25,31 @@ export const LoginForm = () => {
         });
     };
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFirstname(e.target.value);
+    }
+
     return (
         <Form ref={formRef} action="submit" onSubmit={handleSubmit}>
-            <span className="logo">
-                <p>Crazee</p>
-                <img src={logo} alt="Crazee burger avec un burger entre crazee et burger" />
-                <p>Burger</p>
-            </span>
             <div className="form-wrapper">
+                <Logo/>
                 <div className="welcome-wrapper">
                     <h1>Bienvenue chez nous</h1>
                     <span></span>
                     <h2>Connectez-vous</h2>
                 </div>
                 <div className="login-form">
-                    <span className="firstname_input">
-                        <img src={profil_login} alt="Icon représentant une personne" />
-                        <input
-                            type="text"
-                            name="firstname"
-                            value={firstname}
-                            onChange={e => setFirstname(e.target.value)}
-                            placeholder="Entrez votre prénom"
-                            required
-                        />
-                    </span>
-                    
+                    <Input 
+                        value={firstname} 
+                        onChange={handleChange} 
+                        placeholder={"Entrez votre prénom"}
+                        Icon={<BsPersonCircle className="icon"/>}
+                        className="firstname_input"
+                        required
+                    />
                     <button type="submit">
                         <label>Accéder à mon espace</label>
-                        <img src={arrow} alt="flèche qui pointe vers la droite" />
+                        <BsChevronRight className="icon"></BsChevronRight>
                     </button>
                 </div>
             </div>
@@ -64,24 +60,6 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-
-        p {
-            font-family: Amatic;
-            font-size: 110px;
-            color: ${theme.colors.logo};
-            margin: 0;
-        }
-
-        img {
-            max-width: 200px;
-        }
-    }
 
     .form-wrapper {
         display: flex;
@@ -127,25 +105,6 @@ const Form = styled.form`
         width: 100%;
         gap: 18px;
 
-        .firstname_input {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 18px 24px;
-            background-color: ${theme.colors.white};
-            border-radius: ${theme.borderRadius.round};
-        }
-
-        input {
-            border-radius: ${theme.borderRadius.round};
-            border: none;
-            font-family: 'Open Sans';
-
-            &:focus-visible {
-                outline: none;
-            }
-        }
-
         button {
             display: flex;
             align-items: center;
@@ -157,15 +116,23 @@ const Form = styled.form`
             padding: 18px 0;
             font-family: 'Open Sans';
             border-radius: ${theme.borderRadius.round};
-            border: none;
+            border: 1px solid ${theme.colors.primary};
             cursor: pointer;
+            transition: all 0.2s ease-in-out;
 
             label {
                 pointer-events: none;
             }
 
-            img {
-                margin-top: 1px;
+            icon {
+                color: ${theme.colors.white};
+            }
+
+            &:hover {
+                background-color: ${theme.colors.white};
+                color: ${theme.colors.primary};
+                border: 1px solid ${theme.colors.primary};
+                transition: all 0.2s ease-in-out;
             }
         }
     }
