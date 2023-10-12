@@ -42,10 +42,17 @@ const ProfileStyled = styled.div`
 
         a {
             font-size: ${theme.fonts.XXS};
+            transition: all 0.2s ease-in-out;
 
             &:active,
             &:visited {
                 color: ${theme.colors.gray};
+            }
+
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: 4px;
+                transition: all 0.2s ease-in-out;
             }
         }
     }
