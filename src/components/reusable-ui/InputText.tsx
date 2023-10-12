@@ -6,7 +6,6 @@ interface InputTextProps {
     value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     Icon?: React.ReactNode;
-    className: string;
     [key: string] : unknown;
 }
 
