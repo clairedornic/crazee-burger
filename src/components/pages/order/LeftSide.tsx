@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 import { Logo } from '../../../components/reusable-ui/Logo';
 import { theme } from "../../../assets/styles/theme/theme-design";
+import { refreshPage } from '../../../utils/window';
 
 export const LeftSide = () => {
 
-    const refreshPage = () => {
-        window.location.reload();
-    }
-
     return (
         <LeftSideStyled>
-            <Logo className={"logo"} onClick={refreshPage}/>
+            <Logo className={"logo"} onClick={ () => refreshPage()}/>
         </LeftSideStyled>
     )
 }
