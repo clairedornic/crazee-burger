@@ -1,16 +1,13 @@
-import { useLocation } from "react-router-dom";
 import styled from 'styled-components';
 import { theme } from "../../../assets/styles/theme/theme-design";
 import { Navbar } from "./Navbar";
 
 export const OrderPage = () => {
-    const location = useLocation();
-    const userName = location.state?.userName;
 
     return (
         <OrderPageStyled>
             <div className="container">
-                <Navbar userName={userName}/>
+                <Navbar/>
                 <div className="pannel"></div>
             </div>
         </OrderPageStyled>

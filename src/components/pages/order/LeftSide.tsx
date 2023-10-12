@@ -10,29 +10,22 @@ export const LeftSide = () => {
 
     return (
         <LeftSideStyled>
-            <button onClick={refreshPage} className='logo-button'>
-                <Logo className={"logo"}/>
-            </button>
+            <Logo className={"logo"} onClick={refreshPage}/>
         </LeftSideStyled>
     )
 }
 
 const LeftSideStyled = styled.div`
-   .logo-button {
-        border: none;
-        background: none;
+    .logo {
+        cursor: pointer;
 
-        .logo {
-            cursor: pointer;
+        p {
+            font-size: ${theme.fonts.P4};
+        }
 
-            p {
-                font-size: ${theme.fonts.P4};
-            }
-
-            img {
-                max-width: 80px;
-                margin: 0 5px;
-            }
+        img {
+            max-width: 80px;
+            margin: 0 5px;
         }
     }
 `;
