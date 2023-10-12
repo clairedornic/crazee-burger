@@ -5,7 +5,7 @@ import { BsChevronRight } from 'react-icons/bs';
 import styled from 'styled-components';
 import {theme} from '../../../assets/styles/theme/theme-design'
 import { Logo } from "../../reusable-ui/Logo";
-import { InputText } from "../../reusable-ui/InputText";
+import { TextInput } from "../../reusable-ui/TextInput";
 import { BsPersonCircle } from 'react-icons/bs';
 
 export const LoginForm = () => {
@@ -39,7 +39,7 @@ export const LoginForm = () => {
                     <h2>Connectez-vous</h2>
                 </div>
                 <div className="login-form">
-                    <InputText 
+                    <TextInput 
                         value={firstname} 
                         onChange={handleChange} 
                         placeholder={"Entrez votre prénom"}

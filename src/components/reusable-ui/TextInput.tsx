@@ -2,16 +2,16 @@
 import { theme } from '../../assets/styles/theme/theme-design';
 import styled from 'styled-components';
 
-interface InputTextProps {
+interface TextInputProps {
     value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     Icon?: React.ReactNode;
     [key: string] : unknown;
 }
 
-export const InputText: React.FC<InputTextProps> = ({value, onChange, Icon, ...restProps}) => {
+export const TextInput: React.FC<TextInputProps> = ({value, onChange, Icon, ...restProps}) => {
   return (
-    <InputTextStyled>
+    <TextInputStyled>
         {Icon && Icon}
         <input
             type="text"
@@ -20,11 +20,11 @@ export const InputText: React.FC<InputTextProps> = ({value, onChange, Icon, ...r
             onChange={onChange}
             {...restProps}
         />
-    </InputTextStyled>
+    </TextInputStyled>
   )
 }
 
-const InputTextStyled = styled.div`
+const TextInputStyled = styled.div`
     display: flex;
     align-items: center;
     gap: 14px;
