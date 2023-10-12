@@ -1,7 +1,5 @@
 # Crazy Burger - E-commerce Food Ordering Web App
 
-![Crazy Burger Logo](./src/assets/logo.png)
-
 Crazy Burger is a web-based e-commerce application designed to simplify the process of ordering delicious food online. This project is built using React, Vite.js, TypeScript, React Icons, React Router DOM, and Styled Components.
 
 ## Table of Contents
