@@ -33,9 +33,7 @@ export const LoginForm = () => {
     return (
         <Form ref={formRef} action="submit" onSubmit={handleSubmit}>
             <div className="form-wrapper">
-                <div className='logo'>
-                    <Logo/>
-                </div>
+                <Logo className={"logo-login-page"}/>
                 <div className="welcome-wrapper">
                     <h1>Bienvenue chez nous</h1>
                     <span></span>
@@ -70,9 +68,8 @@ const Form = styled.form`
         flex-direction: column;
         align-items: center;
         max-width: 400px;
-
-        .logo {
-
+   
+        .logo-login-page {
             p {
                 font-size: 110px;
             }

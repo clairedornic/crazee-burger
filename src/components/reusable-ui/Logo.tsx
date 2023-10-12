@@ -2,9 +2,13 @@ import logo from '../../assets/medias/images/logo.png';
 import styled from 'styled-components';
 import { theme } from '../../assets/styles/theme/theme-design';
 
-export const Logo = () => {
+interface LogoProps {
+  className: string;
+}
+
+export const Logo: React.FC<LogoProps> = ({className}) => {
   return (
-    <LogoStyled>
+    <LogoStyled className={className}>
         <p>Crazee</p>
         <img src={logo} alt="Crazee burger avec un burger entre crazee et burger" />
         <p>Burger</p>
