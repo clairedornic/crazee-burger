@@ -7,7 +7,7 @@ interface InputTextProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     Icon?: React.ReactNode;
     className: string;
-    [key: string] : any;
+    [key: string] : unknown;
 }
 
 export const InputText: React.FC<InputTextProps> = ({value, onChange, Icon, ...restProps}) => {
