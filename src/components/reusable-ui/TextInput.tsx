@@ -32,7 +32,7 @@ const TextInputStyled = styled.div`
     background-color: ${theme.colors.white};
     border-radius: ${theme.borderRadius.round};
 
-    .icon {
+    .icon-input {
         color: #747B91;
     }
 
