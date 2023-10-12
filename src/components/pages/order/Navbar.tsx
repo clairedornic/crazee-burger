@@ -40,8 +40,8 @@ const NavbarStyled = styled.div`
     .logo {
         border: none;
         background: none;
-        
-        &>div {
+
+        & > div {
             cursor: pointer;
         }
 

@@ -6,12 +6,13 @@ import { Navbar } from "./Navbar";
 export const OrderPage = () => {
     const location = useLocation();
     const userName = location.state?.userName;
-    console.log(location);
 
     return (
         <OrderPageStyled>
-            <Navbar userName={userName}/>
-            <div className="pannel"></div>
+            <div className="container">
+                <Navbar userName={userName}/>
+                <div className="pannel"></div>
+            </div>
         </OrderPageStyled>
     )
 }
@@ -22,10 +23,17 @@ const OrderPageStyled = styled.div`
     padding: 24px 56px;
     height: calc(100vh - 48px);
 
+    .container {
+        max-width: 1400px;
+        height: 100%;
+        margin: 0 auto;
+        width: 100%;
+    }
+
     .pannel {
         display: flex;
         flex-direction: column;
-        height: 100%;
+        height: calc(100% - 98px);
         background-color: ${theme.colors.lightgray};
         border-radius: 0 0 ${theme.borderRadius.round} ${theme.borderRadius.round};
         box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset ;
