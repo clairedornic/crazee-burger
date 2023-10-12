@@ -4,7 +4,7 @@ import { theme } from '../../assets/styles/theme/theme-design';
 
 interface LogoProps {
   className: string;
-  onClick: () => void; 
+  onClick?: () => void; 
 }
 
 export const Logo: React.FC<LogoProps> = ({className, onClick}) => {
