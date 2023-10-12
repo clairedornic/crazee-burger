@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-image: url(${bg_burger});
+  background: url(${bg_burger}) #000000a6;
+  background-blend-mode: darken;
   background-size: cover;
 `;
