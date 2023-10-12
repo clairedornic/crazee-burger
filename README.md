@@ -2,6 +2,8 @@
 
 Crazy Burger is a web-based e-commerce application designed to simplify the process of ordering delicious food online. This project is built using React, Vite.js, TypeScript, React Icons, React Router DOM, and Styled Components.
 
+**Check out the live demo at [https://crazee-burger-peach.vercel.app/](https://crazee-burger-peach.vercel.app/)**
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -9,9 +11,9 @@ Crazy Burger is a web-based e-commerce application designed to simplify the proc
   - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Technologies Used](#technologies-used)
 - [Admin Mode](#admin-mode)
-- [License](#license)
+- [Technologies Used](#technologies-used)
+- [Demo](#demo)
 
 ## Getting Started
 
@@ -77,3 +79,7 @@ Crazy Burger features an admin mode that allows authorized users to:
 - React Icons
 - React Router DOM
 - Styled Components
+
+## Demo
+
+Check out the live demo: [Crazy Burger Demo](https://crazee-burger-peach.vercel.app/)
