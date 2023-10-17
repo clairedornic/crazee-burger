@@ -92,7 +92,7 @@ const Form = styled.form`
 
         h1 {
             margin: 0;
-            font-size: ${theme.fonts.P5};
+            font-size: ${theme.fonts.size.P5};
         }
 
         span {
@@ -106,7 +106,7 @@ const Form = styled.form`
 
         h2 {
             margin: 0;
-            font-size: ${theme.fonts.P4};
+            font-size: ${theme.fonts.size.P4};
         }
     } 
 
