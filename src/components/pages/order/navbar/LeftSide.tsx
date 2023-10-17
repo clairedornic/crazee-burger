@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Logo } from '../../../components/reusable-ui/Logo';
-import { theme } from "../../../assets/styles/theme/theme-design";
-import { refreshPage } from '../../../utils/window';
+import { Logo } from '../../../reusable-ui/Logo';
+import { theme } from "../../../../assets/styles/theme/theme-design";
+import { refreshPage } from '../../../../utils/window';
 
 export const LeftSide = () => {
 
@@ -17,7 +17,7 @@ const LeftSideStyled = styled.div`
         cursor: pointer;
 
         p {
-            font-size: ${theme.fonts.P4};
+            font-size: ${theme.fonts.size.P4};
         }
 
         img {

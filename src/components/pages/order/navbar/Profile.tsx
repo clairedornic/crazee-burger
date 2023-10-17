@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BsPersonCircle } from 'react-icons/bs';
 import { Link, useLocation } from "react-router-dom"
-import { theme } from "../../../assets/styles/theme/theme-design";
+import { theme } from "../../../../assets/styles/theme/theme-design";
 
 export const Profile = () => {
     const location = useLocation();
@@ -36,12 +36,12 @@ const ProfileStyled = styled.div`
         }
 
         span {
-            font-weight: ${theme.weights.bold};
+            font-weight: ${theme.fonts.weights.bold};
             color: ${theme.colors.primary};
         }
 
         a {
-            font-size: ${theme.fonts.XXS};
+            font-size: ${theme.fonts.size.XXS};
             transition: all 0.2s ease-in-out;
 
             &:active,
