@@ -35,9 +35,17 @@ const PrimaryButtonStyled = styled.button`
         pointer-events: none;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: ${theme.colors.white};
         color: ${theme.colors.primary};
+        border: 1px solid ${theme.colors.primary};
+        transition: all 0.2s ease-in-out;
+    }
+
+    &:active {
+        background-color: ${theme.colors.primary};
+        color: ${theme.colors.white};
         border: 1px solid ${theme.colors.primary};
         transition: all 0.2s ease-in-out;
     }
