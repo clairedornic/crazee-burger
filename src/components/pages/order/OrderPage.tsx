@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { theme } from "../../../assets/styles/theme/theme-design";
-import { Navbar } from "./navbar/Navbar";
-import { Menu } from './menu/Menu';
+// import { Navbar } from "./navbar/Navbar";
+// import { Menu } from './menu/Menu';
 import { Basket } from './Basket/Basket';
 
 export const OrderPage = () => {
@@ -9,10 +9,10 @@ export const OrderPage = () => {
     return (
         <OrderPageStyled>
             <div className="container">
-                <Navbar/>
+                {/* <Navbar/> */}
                 <div className="pannel">
                     <Basket/>
-                    <Menu/>
+                    {/* <Menu/> */}
                 </div>
             </div>
         </OrderPageStyled>
