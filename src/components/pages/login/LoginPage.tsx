@@ -1,6 +1,5 @@
 import { LoginForm } from "./LoginForm";
 import styled from 'styled-components';
-import bg_burger from '../../../../public/images/bg-burger.jpg';
 
 export const LoginPage = () => {
 
@@ -17,7 +16,7 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background: url(${bg_burger}) #000000a6;
+  background: url('/images/bg-burger.jpg') #000000a6;
   background-blend-mode: darken;
   background-size: cover;
 `;
