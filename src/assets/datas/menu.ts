@@ -1,4 +1,4 @@
-export const fakeMenu:Burger[] = [
+export const fakeMenu = [
   {
     id: 1,
     imageSource: "/images/burger-bacon-egg.png",
