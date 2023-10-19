@@ -1,6 +1,6 @@
-import logo from '../../assets/medias/images/logo.png';
+import logo from '../../../assets/medias/images/logo.png';
 import styled from 'styled-components';
-import { theme } from '../../assets/styles/theme/theme-design';
+import { theme } from '../../../assets/styles/theme/theme-design';
 
 interface LogoProps {
   className: string;

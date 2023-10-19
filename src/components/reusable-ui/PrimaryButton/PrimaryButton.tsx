@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from "../../assets/styles/theme/theme-design";
+import { theme } from "../../../assets/styles/theme/theme-design";
 
 interface PrimaryButtonProps {
     type: "submit" | "reset" | "button";
