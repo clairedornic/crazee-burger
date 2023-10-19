@@ -1,34 +1,35 @@
 import styled from 'styled-components';
-import { PrimaryButton } from '../../../reusable-ui/PrimaryButton/PrimaryButton';
-import { theme } from "../../../../assets/styles/theme/theme-design";
-import { formatPrice } from '../../../../utils/maths';
+import { PrimaryButton } from '../PrimaryButton/PrimaryButton';
+import { theme } from "../../../assets/styles/theme/theme-design";
 
-interface ProductProps {
+interface CardProps {
   title: string;
-  price: number;
+  leftDescription: number | string;
   imageSource: string;
 }
 
-export const Product: React.FC<ProductProps> = ({title, price, imageSource}) => {
+export const Card: React.FC<CardProps> = ({title, leftDescription, imageSource}) => {
 
   return (
-    <ProductStyled>
+    <CardStyled>
       <img src={`./src/assets/medias${imageSource}`}  alt={title} />
       <div className="content">
           <p className='title'>{title}</p>
-          <div className="bottom-card">
-            <p className='price'>{formatPrice(price)}</p>
-            <PrimaryButton
-                type="button"
-                label="Ajouter"
-            />
+          <div className="description">
+            <p className='left-description'>{leftDescription}</p>
+            <div className="right-description">
+              <PrimaryButton
+                  type="button"
+                  label="Ajouter"
+              />
+            </div>
           </div>
       </div>
-    </ProductStyled>
+    </CardStyled>
   )
 }
 
-const ProductStyled = styled.div`
+const CardStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -58,12 +59,12 @@ const ProductStyled = styled.div`
       text-overflow: ellipsis;
     }
 
-    .bottom-card {
+    .description {
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      .price {
+      .left-description {
         margin: 0;
         color: ${theme.colors.primary};
       }
