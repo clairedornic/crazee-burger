@@ -2,16 +2,16 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { Profile } from './Profile';
 import { theme } from '../../../../assets/styles/theme/theme-design';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import { ToggleButton } from '../../../reusable-ui/ToggleButton/ToggleButton.tsx';
 import { FcInfo } from 'react-icons/fc';
 
 export const RightSide = () => {
 
-  const [checked, setChecked] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
 
   const handleToggleAdminButton = () => {
-    if ( !checked ) {
+    if ( !isModeAdmin ) {
       toast.info("Mode admin activé", {
         icon: <FcInfo size={30} />,
         theme: "dark",
@@ -24,13 +24,14 @@ export const RightSide = () => {
         progress: undefined,
       })
     }
-    setChecked(!checked);
+    setIsModeAdmin(!isModeAdmin);
   }
 
   return (
     <RightSideStyled>
-        <ToggleButton isChecked={checked} onToggle={handleToggleAdminButton} labelIfChecked="Désactiver le mode admi" labelIfUnchecked="Activer le mode admin"/>
+        <ToggleButton isChecked={isModeAdmin} onToggle={handleToggleAdminButton} labelIfChecked="Désactiver le mode admi" labelIfUnchecked="Activer le mode admin" backgroundColor={"darkgray"}/>
         <Profile/>
+        <ToastContainer className="toaster" bodyClassName="body-toast" />
     </RightSideStyled>
   )
 }
