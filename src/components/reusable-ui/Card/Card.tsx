@@ -12,7 +12,7 @@ export const Card: React.FC<CardProps> = ({title, leftDescription, imageSource})
 
   return (
     <CardStyled>
-      <img src={`./src/assets/medias${imageSource}`}  alt={title} />
+      <img src={imageSource}  alt={title} />
       <div className="content">
           <p className='title'>{title}</p>
           <div className="description">

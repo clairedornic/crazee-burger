@@ -1,6 +1,6 @@
 import { LoginForm } from "./LoginForm";
 import styled from 'styled-components';
-import bg_burger from '../../../assets/medias/images/bg-burger.jpg';
+import bg_burger from '../../../../public/images/bg-burger.jpg';
 
 export const LoginPage = () => {
 
