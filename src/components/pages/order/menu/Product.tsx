@@ -1,34 +1,34 @@
 import styled from 'styled-components';
-import { PrimaryButton } from '../../../../components/reusable-ui/PrimaryButton';
+import { PrimaryButton } from '../../../reusable-ui/PrimaryButton/PrimaryButton';
 import { theme } from "../../../../assets/styles/theme/theme-design";
 import { formatPrice } from '../../../../utils/maths';
 
-interface CardBurgerProps {
-  burger: Burger;
+interface ProductProps {
+  title: string;
+  price: number;
+  imageSource: string;
 }
 
-export const CardBurger: React.FC<CardBurgerProps> = ({burger}) => {
-
-  const formattedPrice = formatPrice(burger.price);
+export const Product: React.FC<ProductProps> = ({title, price, imageSource}) => {
 
   return (
-    <CardBurgerStyled>
-      <img src={`./src/assets/medias${burger.imageSource}`}  alt={burger.title} />
+    <ProductStyled>
+      <img src={`./src/assets/medias${imageSource}`}  alt={title} />
       <div className="content">
-          <p className='title'>{burger.title}</p>
+          <p className='title'>{title}</p>
           <div className="bottom-card">
-            <p className='price'>{formattedPrice}</p>
+            <p className='price'>{formatPrice(price)}</p>
             <PrimaryButton
                 type="button"
                 label="Ajouter"
             />
           </div>
       </div>
-    </CardBurgerStyled>
+    </ProductStyled>
   )
 }
 
-const CardBurgerStyled = styled.div`
+const ProductStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
