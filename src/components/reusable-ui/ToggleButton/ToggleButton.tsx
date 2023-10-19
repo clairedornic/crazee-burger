@@ -46,7 +46,7 @@ const ToggleButtonStyled = styled.div`
       position: relative;
       font-size: ${theme.fonts.size.XXS};
       letter-spacing: 0.5px;
-      border: 2px solid ${theme.colors.black};
+      border: 2px solid ${theme.colors.darkgray};
       padding: 0;
       margin: 0;
       cursor: pointer;
@@ -89,7 +89,7 @@ const ToggleButtonStyled = styled.div`
     }
 
     &.toggle:not(:checked) + label {
-      background-color: ${theme.colors.black};
+      background-color: ${theme.colors.darkgray};
       /* text-align: right; */
     }
 

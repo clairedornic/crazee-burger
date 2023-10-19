@@ -29,7 +29,7 @@ export const RightSide = () => {
 
   return (
     <RightSideStyled>
-        <ToggleButton isChecked={checked} onToggle={handleToggleAdminButton} labelIfChecked="Désactiver le mode admi" labelIfUnchecked="Activer le mode adminn"/>
+        <ToggleButton isChecked={checked} onToggle={handleToggleAdminButton} labelIfChecked="Désactiver le mode admi" labelIfUnchecked="Activer le mode admin"/>
         <Profile/>
     </RightSideStyled>
   )
@@ -38,6 +38,9 @@ export const RightSide = () => {
 const RightSideStyled = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-right: 50px;
+  gap: 60px;
 
   .toaster {
     max-width: 300px;
