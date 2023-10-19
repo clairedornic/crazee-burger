@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {fakeMenu} from '../../../../assets/datas/menu';
 import { formatPrice } from "../../../../utils/maths";
 
-export const Menu: React.FC = () => {
+export const Menu = () => {
 
   const [products] = useState(fakeMenu);
 
