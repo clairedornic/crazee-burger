@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Logo } from '../../../reusable-ui/Logo';
+import { Logo } from '../../../reusable-ui/Logo/Logo';
 import { theme } from "../../../../assets/styles/theme/theme-design";
 import { refreshPage } from '../../../../utils/window';
 

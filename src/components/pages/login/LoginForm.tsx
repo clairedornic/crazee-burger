@@ -3,10 +3,10 @@ import { FormEvent, useRef, useState } from "react";
 import { useNavigate  } from "react-router-dom";
 import styled from 'styled-components';
 import {theme} from '../../../assets/styles/theme/theme-design'
-import { Logo } from "../../reusable-ui/Logo";
-import { TextInput } from "../../reusable-ui/TextInput";
+import { Logo } from "../../reusable-ui/Logo/Logo";
+import { TextInput } from "../../reusable-ui/TextInput/TextInput";
 import { BsPersonCircle } from 'react-icons/bs';
-import { PrimaryButton } from "../../reusable-ui/PrimaryButton";
+import { PrimaryButton } from "../../reusable-ui/PrimaryButton/PrimaryButton";
 import { BsChevronRight } from 'react-icons/bs';
 
 export const LoginForm = () => {
