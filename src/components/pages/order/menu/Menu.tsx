@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card } from "../../../reusable-ui/Card/Card.tsx";
 import styled from 'styled-components';
-import {fakeMenu} from '../../../../assets/datas/menu';
+import { fakeMenu } from '../../../../assets/datas/menu';
 import { formatPrice } from "../../../../utils/maths";
 
 export const Menu = () => {
