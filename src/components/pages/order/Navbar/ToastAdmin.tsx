@@ -3,14 +3,12 @@ import { ToastContainer } from "react-toastify"
 import { theme } from "../../../../assets/styles/theme/theme-design";
 
 export const ToastAdmin = () => {
-  return (
-    <ToastAdminStyled>
-        <ToastContainer className="toaster" bodyClassName="body-toast" />
-    </ToastAdminStyled>
-  )
+    return (
+        <ToastAdminStyled className="toaster" bodyClassName="body-toast" />
+    )
 }
 
-const ToastAdminStyled = styled.div`
+const ToastAdminStyled = styled(ToastContainer)`
     .toaster {
     max-width: 300px;
   }
