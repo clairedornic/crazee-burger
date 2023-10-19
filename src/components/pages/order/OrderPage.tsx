@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { theme } from "../../../assets/styles/theme/theme-design";
-import { Navbar } from "./navbar/Navbar";
-import { Menu } from './menu/Menu';
+import { Navbar } from "./Navbar/Navbar";
+import { Menu } from './Menu/Menu';
+import { Basket } from './Basket/Basket';
 
 export const OrderPage = () => {
 
@@ -10,6 +11,7 @@ export const OrderPage = () => {
             <div className="container">
                 <Navbar/>
                 <div className="pannel">
+                    <Basket/>
                     <Menu/>
                 </div>
             </div>
@@ -31,8 +33,8 @@ const OrderPageStyled = styled.div`
     }
 
     .pannel {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 25% 1fr;
         height: calc(100% - 98px);
         background-color: ${theme.colors.lightgray};
         border-radius: 0 0 ${theme.borderRadius.round} ${theme.borderRadius.round};
