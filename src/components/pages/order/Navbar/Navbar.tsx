@@ -16,7 +16,7 @@ export const Navbar = () => {
 const NavbarStyled = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 20px 70px 20px 20px;
+    padding: 20px;
     background-color: ${theme.colors.white};
     border-radius: ${theme.borderRadius.round} ${theme.borderRadius.round} 0 0;
 `;
