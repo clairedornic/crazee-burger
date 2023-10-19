@@ -6,7 +6,7 @@ import { formatPrice } from "../../../../utils/maths";
 
 export const Menu: React.FC = () => {
 
-  const [products, setProducts] = useState(fakeMenu);
+  const [products] = useState(fakeMenu);
 
   return (
     <MenuStyled>
