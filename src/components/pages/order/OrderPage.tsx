@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { theme } from "../../../assets/styles/theme/theme-design";
-import { Navbar } from "./Navbar/Navbar";
-import { Menu } from './Menu/Menu';
+import { Navbar } from "./navbar/Navbar";
+import { Menu } from './menu/Menu';
 import { Basket } from './Basket/Basket';
 
 export const OrderPage = () => {
