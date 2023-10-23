@@ -3,6 +3,7 @@ import { theme } from "../../../assets/styles/theme/theme-design";
 import { Navbar } from "./Navbar/Navbar";
 import { Menu } from './Menu/Menu';
 import { Basket } from './Basket/Basket';
+import { AdminPanel } from './Admin/AdminPanel';
 
 export const OrderPage = () => {
 
@@ -14,6 +15,7 @@ export const OrderPage = () => {
                     <Basket/>
                     <Menu/>
                 </div>
+                <AdminPanel/>
             </div>
         </OrderPageStyled>
     )
@@ -26,6 +28,7 @@ const OrderPageStyled = styled.div`
     height: calc(100vh - 48px);
 
     .container {
+        position: relative;
         max-width: 1400px;
         height: 100%;
         margin: 0 auto;
