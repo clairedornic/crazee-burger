@@ -6,7 +6,7 @@ interface ToggleButtonProps {
   onToggle : () => void
   labelIfChecked : string
   labelIfUnchecked : string
-  backgroundColor: keyof typeof theme.colors
+  backgroundcolor: keyof typeof theme.colors
 }
 
 export const ToggleButton: React.FC<ToggleButtonProps> = (
@@ -15,11 +15,11 @@ export const ToggleButton: React.FC<ToggleButtonProps> = (
     onToggle, 
     labelIfChecked = "Fermer", 
     labelIfUnchecked = "Ouvrir",
-    backgroundColor
+    backgroundcolor
   }) => {
   
   return (
-    <ToggleButtonStyled backgroundColor={theme.colors[backgroundColor]}>
+    <ToggleButtonStyled backgroundcolor={theme.colors[backgroundcolor]}>
       <input
         type="checkbox"
         className="toggle"
@@ -37,7 +37,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = (
   )
 }
 
-const ToggleButtonStyled = styled.div<{ backgroundColor: string; }>`
+const ToggleButtonStyled = styled.div<{ backgroundcolor: string; }>`
   display: flex;
   margin-right: 10px;
 
@@ -97,7 +97,7 @@ const ToggleButtonStyled = styled.div<{ backgroundColor: string; }>`
     }
 
     &.toggle:not(:checked) + label {
-      background-color: ${(props) => props.backgroundColor ? props.backgroundColor : theme.colors.darkGray};
+      background-color: ${(props) => props.backgroundcolor ? props.backgroundcolor : theme.colors.darkGray};
     }
 
     // text label when not checked
