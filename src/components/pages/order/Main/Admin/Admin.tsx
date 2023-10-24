@@ -20,4 +20,5 @@ const AdminStyled = styled.div`
     border: 1px solid ${theme.colors.extraLightGray};
     background: ${theme.colors.white};
     box-shadow: ${theme.shadows.subtle};
+    box-sizing: border-box;
 `;
