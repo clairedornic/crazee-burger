@@ -3,14 +3,25 @@ import { theme } from "../../../../assets/styles/theme/theme-design";
 import { Menu } from './Menu/Menu.tsx';
 import { Basket } from './Basket/Basket';
 import { Admin } from './Admin/Admin.tsx';
+import { useContext } from 'react';
+import OrderContext from '../../../../contexts/OrderContext';
 
 export const Main = () => {
+
+  const orderContext = useContext(OrderContext);
+
+  if (!orderContext) {
+    throw new Error('OrderContext must be used within an OrderProvider');
+  }
+
+  const { isModeAdmin } = orderContext;
+
   return (
     <MainStyled className="main">
         <Basket/>
         <div className="menu-and-admin">
             <Menu/>
-            <Admin/>
+            {isModeAdmin && <Admin/>}
         </div>
     </MainStyled>
   )
