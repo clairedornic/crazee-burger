@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Card } from "../../../reusable-ui/Card/Card.tsx";
+import { Card } from "../../../../reusable-ui/Card/Card.tsx";
 import styled from 'styled-components';
-import { fakeMenu } from '../../../../assets/datas/menu.ts';
-import { formatPrice } from "../../../../utils/maths.ts";
+import { fakeMenu } from '../../../../../assets/datas/menu.ts';
+import { formatPrice } from "../../../../../utils/maths.ts";
 
 export const Menu = () => {
 

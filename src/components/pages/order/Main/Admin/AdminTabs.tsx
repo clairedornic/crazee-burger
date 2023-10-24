@@ -1,7 +1,7 @@
 import { ReactElement, useState } from "react";
 import styled from "styled-components";
 import { AdminTabTitle, AdminTabTitleProps } from "./AdminTabTitle"
-import { theme } from "../../../../assets/styles/theme/theme-design";
+import { theme } from "../../../../../assets/styles/theme/theme-design";
 
 interface AdminTabsProps {
     children: ReactElement<AdminTabTitleProps>[];

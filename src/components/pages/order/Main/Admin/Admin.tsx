@@ -5,9 +5,9 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { MdModeEditOutline } from 'react-icons/md';
 import { FiChevronUp } from 'react-icons/fi';
 
-export const AdminPanel = () => {
+export const Admin = () => {
   return (
-    <AdminPanelStyled>
+    <AdminStyled>
         <div className="admin-container">
             <AdminTabs>
                 <AdminTab title="" icon={<FiChevronUp/>}></AdminTab>
@@ -15,11 +15,11 @@ export const AdminPanel = () => {
                 <AdminTab title="Modifier un produit" icon={<MdModeEditOutline/>}></AdminTab>
             </AdminTabs>
         </div>
-    </AdminPanelStyled>
+    </AdminStyled>
   )
 }
 
-const AdminPanelStyled = styled.div`
+const AdminStyled = styled.div`
     position: absolute;
     bottom: 0;
     height: 250px;

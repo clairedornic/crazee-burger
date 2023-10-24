@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import { theme } from "../../../assets/styles/theme/theme-design";
 import { Navbar } from "./Navbar/Navbar";
-import { Menu } from './Menu/Menu';
-import { Basket } from './Basket/Basket';
-import { AdminPanel } from './Admin/AdminPanel';
+import { Main } from './Main/Main';
 
 export const OrderPage = () => {
 
@@ -11,13 +9,7 @@ export const OrderPage = () => {
         <OrderPageStyled>
             <div className="container">
                 <Navbar/>
-                <div className="pannel">
-                    <Basket/>
-                    <div className="menu-and-admin">
-                        <Menu/>
-                        <AdminPanel/>
-                    </div>
-                </div>
+                <Main/>
             </div>
         </OrderPageStyled>
     )
@@ -35,19 +27,5 @@ const OrderPageStyled = styled.div`
         height: 100%;
         margin: 0 auto;
         width: 100%;
-    }
-
-    .pannel {
-        display: grid;
-        grid-template-columns: 25% 1fr;
-        height: calc(100% - 98px);
-        background-color: ${theme.colors.lightgray};
-        border-radius: 0 0 ${theme.borderRadius.round} ${theme.borderRadius.round};
-        box-shadow: ${theme.shadows.strong};
-
-        .menu-and-admin {
-            position: relative;
-            overflow-y: hidden;
-        }
     }
 `;

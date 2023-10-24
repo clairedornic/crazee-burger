@@ -3,7 +3,7 @@ interface AdminTabsProps {
     icon: React.ReactNode;
 }
 
-import { theme } from "../../../../assets/styles/theme/theme-design";
+import { theme } from "../../../../../assets/styles/theme/theme-design";
 import styled from "styled-components";
 
 export const AdminTab: React.FC<AdminTabsProps> = ({title}) => {
