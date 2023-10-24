@@ -31,7 +31,7 @@ const ProfileStyled = styled.div`
         color: ${theme.colors.gray};
 
         p {
-            font-size: 16px;
+            font-size: ${theme.fonts.size.P0};
             margin: 0;
         }
 

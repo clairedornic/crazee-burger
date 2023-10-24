@@ -16,6 +16,6 @@ export const AdminTab: React.FC<AdminTabsProps> = ({title}) => {
 
 const AdminTabContentStyled = styled.div`
     background: ${theme.colors.white};
-    box-shadow: 0px -6px 8px -2px rgba(0, 0, 0, 0.10);
+    box-shadow: ${theme.shadows.subtle};
     border: 1px solid #E4E5E9;
 `;

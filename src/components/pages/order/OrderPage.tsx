@@ -41,6 +41,6 @@ const OrderPageStyled = styled.div`
         height: calc(100% - 98px);
         background-color: ${theme.colors.lightgray};
         border-radius: 0 0 ${theme.borderRadius.round} ${theme.borderRadius.round};
-        box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset ;
+        box-shadow: ${theme.shadows.strong};
     }
 `;
