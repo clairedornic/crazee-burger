@@ -23,7 +23,7 @@ const MainStyled = styled.div`
     background-color: ${theme.colors.lightGray};
     border-radius: 0 0 ${theme.borderRadius.round} ${theme.borderRadius.round};
     box-shadow: ${theme.shadows.strong};
-
+    
     .menu-and-admin {
         position: relative;
         overflow-y: hidden;
