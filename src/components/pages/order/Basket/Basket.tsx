@@ -1,5 +1,13 @@
+import styled from "styled-components";
+
 export const Basket = () => {
   return (
-    <div>Basket</div>
+    <BasketStyled>
+      Basket
+    </BasketStyled>
   )
 }
+
+const BasketStyled = styled.div`
+    background-color: #3bc6cd;
+`;

@@ -13,9 +13,11 @@ export const OrderPage = () => {
                 <Navbar/>
                 <div className="pannel">
                     <Basket/>
-                    <Menu/>
+                    <div className="menu-and-admin">
+                        <Menu/>
+                        <AdminPanel/>
+                    </div>
                 </div>
-                <AdminPanel/>
             </div>
         </OrderPageStyled>
     )
@@ -42,5 +44,10 @@ const OrderPageStyled = styled.div`
         background-color: ${theme.colors.lightgray};
         border-radius: 0 0 ${theme.borderRadius.round} ${theme.borderRadius.round};
         box-shadow: ${theme.shadows.strong};
+
+        .menu-and-admin {
+            position: relative;
+            overflow-y: scroll;
+        }
     }
 `;

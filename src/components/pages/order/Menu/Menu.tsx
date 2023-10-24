@@ -26,6 +26,6 @@ const MenuStyled = styled.div`
   width: 100%;
   justify-content: center;
   margin: 0 auto;
-  padding: 60px 90px;
+  padding: 60px;
   overflow-y: scroll;
 `;
