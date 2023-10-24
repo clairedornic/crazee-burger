@@ -37,7 +37,7 @@ const AdminTabsStyled = styled.div`
     }
 
     & > div {
-        border: 1px solid #E4E5E9;
+        border: 1px solid ${theme.colors.extraLightGray};
         background: ${theme.colors.white};
     }
 `;

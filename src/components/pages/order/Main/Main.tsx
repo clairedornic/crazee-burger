@@ -17,17 +17,15 @@ export const Main = () => {
 }
 
 const MainStyled = styled.div`
-    .main {
-        display: grid;
-        grid-template-columns: 25% 1fr;
-        height: calc(100% - 98px);
-        background-color: ${theme.colors.lightgray};
-        border-radius: 0 0 ${theme.borderRadius.round} ${theme.borderRadius.round};
-        box-shadow: ${theme.shadows.strong};
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    height: calc(100% - 98px);
+    background-color: ${theme.colors.lightGray};
+    border-radius: 0 0 ${theme.borderRadius.round} ${theme.borderRadius.round};
+    box-shadow: ${theme.shadows.strong};
 
-        .menu-and-admin {
-            position: relative;
-            overflow-y: hidden;
-        }
+    .menu-and-admin {
+        position: relative;
+        overflow-y: hidden;
     }
 `;

@@ -29,7 +29,7 @@ export const RightSide = () => {
 
   return (
     <RightSideStyled>
-        <ToggleButton isChecked={isModeAdmin} onToggle={handleToggleAdminButton} labelIfChecked="Désactiver le mode admi" labelIfUnchecked="Activer le mode admin" backgroundColor={"darkgray"}/>
+        <ToggleButton isChecked={isModeAdmin} onToggle={handleToggleAdminButton} labelIfChecked="Désactiver le mode admi" labelIfUnchecked="Activer le mode admin" backgroundColor={"darkGray"}/>
         <Profile/>
         <ToastAdmin/>
     </RightSideStyled>

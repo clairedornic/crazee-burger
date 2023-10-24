@@ -54,7 +54,7 @@ const ToggleButtonStyled = styled.div<{ backgroundColor: string; }>`
       position: relative;
       font-size: ${theme.fonts.size.XXS};
       letter-spacing: 0.5px;
-      border: 2px solid ${theme.colors.darkgray};
+      border: 2px solid ${theme.colors.darkGray};
       padding: 0;
       margin: 0;
       cursor: pointer;
@@ -97,7 +97,7 @@ const ToggleButtonStyled = styled.div<{ backgroundColor: string; }>`
     }
 
     &.toggle:not(:checked) + label {
-      background-color: ${(props) => props.backgroundColor ? props.backgroundColor : theme.colors.darkgray};
+      background-color: ${(props) => props.backgroundColor ? props.backgroundColor : theme.colors.darkGray};
     }
 
     // text label when not checked
