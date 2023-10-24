@@ -22,7 +22,11 @@ export const AdminPanel = () => {
 const AdminPanelStyled = styled.div`
     position: absolute;
     bottom: 0;
-    display: flex;
-    flex-direction: column;
+    height: 250px;
     width: 100%;
+    z-index: 1;
+
+    .admin-container {
+      height: 100%;
+    }
 `;

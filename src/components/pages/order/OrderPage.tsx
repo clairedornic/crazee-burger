@@ -47,7 +47,7 @@ const OrderPageStyled = styled.div`
 
         .menu-and-admin {
             position: relative;
-            overflow-y: scroll;
+            overflow-y: hidden;
         }
     }
 `;

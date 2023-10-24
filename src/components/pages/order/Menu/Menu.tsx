@@ -23,8 +23,8 @@ const MenuStyled = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr) );
   grid-row-gap: 85px;
   grid-column-gap: 60px;
-  width: 100%;
   justify-content: center;
+  height: 100%;
   margin: 0 auto;
   padding: 60px;
   overflow-y: scroll;
