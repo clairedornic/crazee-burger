@@ -19,12 +19,13 @@ export const Menu = () => {
 
 const MenuStyled = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 240px);
+  box-sizing: border-box;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr) );
   grid-row-gap: 85px;
   grid-column-gap: 60px;
   width: 100%;
   justify-content: center;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 60px 90px;
   overflow-y: scroll;
 `;
