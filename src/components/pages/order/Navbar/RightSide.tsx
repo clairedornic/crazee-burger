@@ -1,15 +1,22 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { Profile } from './Profile';
 import { ToggleButton } from '../../../reusable-ui/ToggleButton/ToggleButton.tsx';
 import { FcInfo } from 'react-icons/fc';
 import { ToastAdmin } from './ToastAdmin.tsx';
 import { toast } from 'react-toastify';
+import { useContext } from 'react';
+import OrderContext from '../../../../contexts/OrderContext.ts';
 
 export const RightSide = () => {
 
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const orderContext = useContext(OrderContext);
 
+  if (!orderContext) {
+    throw new Error('OrderContext must be used within an OrderProvider');
+  }
+
+  const { isModeAdmin, setIsModeAdmin } = orderContext;
+  
   const handleToggleAdminButton = () => {
     if ( !isModeAdmin ) {
       toast.info("Mode admin activé", {
