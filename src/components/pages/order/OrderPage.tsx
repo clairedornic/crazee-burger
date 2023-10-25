@@ -1,42 +1,47 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 import { theme } from "../../../assets/styles/theme/theme-design";
 import { Navbar } from "./Navbar/Navbar";
-import { Main } from './Main/Main';
-import OrderContext from '../../../contexts/OrderContext';
+import { Main } from "./Main/Main";
+import OrderContext from "../../../contexts/OrderContext";
 
 export const OrderPage = () => {
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isEditSelected, setIsEditSelected] = useState(false);
+  const [isAddSelected, setIsAddSelected] = useState(true);
 
-    const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const orderContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    isEditSelected,
+    setIsEditSelected,
+    isAddSelected,
+    setIsAddSelected,
+  };
 
-    const orderContextValue = {
-        isModeAdmin,
-        setIsModeAdmin
-    }
-    
-    return (
-        <OrderContext.Provider value={orderContextValue}>
-            <OrderPageStyled>
-                <div className="container">
-                    <Navbar/>
-                    <Main/>
-                </div>
-            </OrderPageStyled>
-        </OrderContext.Provider>
-    )
-}
+  return (
+    <OrderContext.Provider value={orderContextValue}>
+      <OrderPageStyled>
+        <div className="container">
+          <Navbar />
+          <Main />
+        </div>
+      </OrderPageStyled>
+    </OrderContext.Provider>
+  );
+};
 const OrderPageStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    background-color: ${theme.colors.primary};
-    padding: 24px 56px;
-    height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  background-color: ${theme.colors.primary};
+  padding: 24px 56px;
+  height: calc(100vh - 48px);
 
-    .container {
-        position: relative;
-        max-width: 1400px;
-        height: 100%;
-        margin: 0 auto;
-        width: 100%;
-    }
+  .container {
+    position: relative;
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+  }
 `;
