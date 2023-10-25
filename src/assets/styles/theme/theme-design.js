@@ -3,6 +3,7 @@ const colors = {
     gray: '#747B91',
     extraLightGray: '#E4E5E9',
     lightGray: '#F5F5F7',
+    mediumGray: '#93A2B1',
     darkGray: '#292729',
     black: '#000',
     primary: '#FF9F1B',
