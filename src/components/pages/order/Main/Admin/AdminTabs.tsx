@@ -15,5 +15,9 @@ export const AdminTabs = () => {
 }
 
 const AdminTabsStyled = styled.div`
-  
+    position: relative;
+    top: 1px;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
 `;
