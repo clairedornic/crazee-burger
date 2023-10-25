@@ -16,19 +16,19 @@ export const AdminTabs:React.FC<AdminTabsProps> = ({isCollapsed, setIsCollapsed}
   return (
     <AdminTabsStyled>
         <Tab 
-          title="" 
+          label="" 
           Icon={isCollapsed ? <FiChevronDown/> : <FiChevronUp/>} 
           onClick={() => setIsCollapsed(!isCollapsed)}
           className={!isCollapsed ? "is-active" : ""}
         />
         <Tab 
-          title="Ajouter un produit" 
+          label="Ajouter un produit" 
           Icon={<AiOutlinePlus/>} 
           onClick={() => setIsCollapsed(!isCollapsed)}
           className={!isCollapsed ? "is-active" : ""}
         />
         <Tab 
-          title="Modifier un produit" 
+          label="Modifier un produit" 
           Icon={<MdModeEditOutline/>} 
           onClick={() => setIsCollapsed(!isCollapsed)}
           className={!isCollapsed ? "is-active" : ""}

@@ -2,17 +2,17 @@ import { theme } from "../../../assets/styles/theme/theme-design";
 import styled from "styled-components";
 
 interface TabProps {
-  title?: string
+  label?: string
   Icon: React.ReactNode;
   onClick?: () => void; 
   className: string;
 }
 
-export const Tab: React.FC<TabProps> = ({title, Icon, onClick, className}) => {
+export const Tab: React.FC<TabProps> = ({label, Icon, onClick, className}) => {
 
   return (
     <TabContentStyled onClick={onClick} className={className}>
-          {Icon} { title && <span>{title}</span> }
+          {Icon} { label && <span>{label}</span> }
     </TabContentStyled>
   )
 }
