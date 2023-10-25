@@ -3,13 +3,16 @@ import styled from "styled-components";
 
 interface TabProps {
   title?: string
-  icon: React.ReactNode;
+  Icon: React.ReactNode;
+  onClick?: () => void; 
+  className: string;
 }
 
-export const Tab: React.FC<TabProps> = ({title, icon}) => {
+export const Tab: React.FC<TabProps> = ({title, Icon, onClick, className}) => {
+
   return (
-    <TabContentStyled>
-          {icon} { title && <span>{title}</span> }
+    <TabContentStyled onClick={onClick} className={className}>
+          {Icon} { title && <span>{title}</span> }
     </TabContentStyled>
   )
 }
