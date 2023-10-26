@@ -5,6 +5,7 @@ import { Navbar } from "./Navbar/Navbar";
 import { Main } from "./Main/Main";
 import OrderContext from "../../../contexts/OrderContext";
 
+
 export const OrderPage = () => {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
@@ -33,7 +34,7 @@ const OrderPageStyled = styled.div`
   background-color: ${theme.colors.primary};
   padding: 24px 56px;
   height: calc(100vh - 48px);
-
+        
   .container {
     position: relative;
     max-width: 1400px;
