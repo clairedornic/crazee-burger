@@ -1,25 +1,23 @@
-import styled from 'styled-components';
-import { theme } from "../../../assets/styles/theme/theme-design"
+import styled from "styled-components";
+import { theme } from "../../../assets/styles/theme/theme-design";
 
 interface ToggleButtonProps {
-  isChecked : boolean
-  onToggle : () => void
-  labelIfChecked : string
-  labelIfUnchecked : string
-  backgroundColor: keyof typeof theme.colors
+  isChecked: boolean;
+  onToggle: () => void;
+  labelIfChecked: string;
+  labelIfUnchecked: string;
+  backgroundcolor: keyof typeof theme.colors;
 }
 
-export const ToggleButton: React.FC<ToggleButtonProps> = (
-  {
-    isChecked, 
-    onToggle, 
-    labelIfChecked = "Fermer", 
-    labelIfUnchecked = "Ouvrir",
-    backgroundColor
-  }) => {
-  
+export const ToggleButton: React.FC<ToggleButtonProps> = ({
+  isChecked,
+  onToggle,
+  labelIfChecked = "Fermer",
+  labelIfUnchecked = "Ouvrir",
+  backgroundcolor,
+}) => {
   return (
-    <ToggleButtonStyled backgroundColor={theme.colors[backgroundColor]}>
+    <ToggleButtonStyled backgroundcolor={theme.colors[backgroundcolor]}>
       <input
         type="checkbox"
         className="toggle"
@@ -34,10 +32,10 @@ export const ToggleButton: React.FC<ToggleButtonProps> = (
         data-unchecked={labelIfUnchecked}
       ></label>
     </ToggleButtonStyled>
-  )
-}
+  );
+};
 
-const ToggleButtonStyled = styled.div<{ backgroundColor: string; }>`
+const ToggleButtonStyled = styled.div<{ backgroundcolor: string }>`
   display: flex;
   margin-right: 10px;
 
@@ -54,7 +52,7 @@ const ToggleButtonStyled = styled.div<{ backgroundColor: string; }>`
       position: relative;
       font-size: ${theme.fonts.size.XXS};
       letter-spacing: 0.5px;
-      border: 2px solid ${theme.colors.darkgray};
+      border: 2px solid ${theme.colors.darkGray};
       padding: 0;
       margin: 0;
       cursor: pointer;
@@ -97,7 +95,8 @@ const ToggleButtonStyled = styled.div<{ backgroundColor: string; }>`
     }
 
     &.toggle:not(:checked) + label {
-      background-color: ${(props) => props.backgroundColor ? props.backgroundColor : theme.colors.darkgray};
+      background-color: ${(props) =>
+        props.backgroundcolor ? props.backgroundcolor : theme.colors.darkGray};
     }
 
     // text label when not checked
@@ -138,4 +137,4 @@ const ToggleButtonStyled = styled.div<{ backgroundColor: string; }>`
       background-color: ${theme.colors.primary};
     }
   }
-`
+`;

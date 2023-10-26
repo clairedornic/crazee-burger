@@ -89,4 +89,4 @@ export const fakeMenu = [
     isAvailable: true,
     isAdvertised: false,
   },
-]
+];

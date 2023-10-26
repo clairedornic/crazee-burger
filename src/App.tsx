@@ -1,8 +1,8 @@
-import { Route, Routes } from 'react-router-dom'
-import { LoginPage } from './components/pages/login/LoginPage'
-import { ErrorPage } from './components/pages/error/ErrorPage';
-import { OrderPage } from './components/pages/order/OrderPage';
-import 'react-toastify/dist/ReactToastify.css';
+import { Route, Routes } from "react-router-dom";
+import { LoginPage } from "./components/pages/login/LoginPage";
+import { ErrorPage } from "./components/pages/error/ErrorPage";
+import { OrderPage } from "./components/pages/order/OrderPage";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

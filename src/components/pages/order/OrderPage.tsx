@@ -1,46 +1,45 @@
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 import { theme } from "../../../assets/styles/theme/theme-design";
 import { Navbar } from "./Navbar/Navbar";
-import { Menu } from './Menu/Menu';
-import { Basket } from './Basket/Basket';
-import { AdminPanel } from './Admin/AdminPanel';
+import { Main } from "./Main/Main";
+import OrderContext from "../../../contexts/OrderContext";
+
 
 export const OrderPage = () => {
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
 
-    return (
-        <OrderPageStyled>
-            <div className="container">
-                <Navbar/>
-                <div className="pannel">
-                    <Basket/>
-                    <Menu/>
-                </div>
-                <AdminPanel/>
-            </div>
-        </OrderPageStyled>
-    )
-}
+  const orderContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    currentTabSelected,
+    setCurrentTabSelected,
+  };
+
+  return (
+    <OrderContext.Provider value={orderContextValue}>
+      <OrderPageStyled>
+        <div className="container">
+          <Navbar />
+          <Main />
+        </div>
+      </OrderPageStyled>
+    </OrderContext.Provider>
+  );
+};
 const OrderPageStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    background-color: ${theme.colors.primary};
-    padding: 24px 56px;
-    height: calc(100vh - 48px);
-
-    .container {
-        position: relative;
-        max-width: 1400px;
-        height: 100%;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .pannel {
-        display: grid;
-        grid-template-columns: 25% 1fr;
-        height: calc(100% - 98px);
-        background-color: ${theme.colors.lightgray};
-        border-radius: 0 0 ${theme.borderRadius.round} ${theme.borderRadius.round};
-        box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset ;
-    }
+  display: flex;
+  flex-direction: column;
+  background-color: ${theme.colors.primary};
+  padding: 24px 56px;
+  height: calc(100vh - 48px);
+        
+  .container {
+    position: relative;
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+  }
 `;
