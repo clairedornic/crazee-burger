@@ -1,8 +1,27 @@
+import { useContext } from "react";
+import OrderContext from "../../../../../contexts/OrderContext";
 import { theme } from "../../../../../assets/styles/theme/theme-design";
 import styled from "styled-components";
+import { getTabsConfig, getTabSelected } from "./tabsconfig";
 
 export const AdminPanel = () => {
-  return <AdminPanelStyled>ADMIN PANEL</AdminPanelStyled>;
+  const orderContext = useContext(OrderContext);
+
+  if (!orderContext) {
+    throw new Error("OrderContext must be used within an OrderProvider");
+  }
+
+  const { currentTabSelected } = orderContext;
+
+  const tabs = getTabsConfig();
+
+  const tabSelected = getTabSelected(tabs, currentTabSelected);
+
+  return (
+    <AdminPanelStyled>
+      <p>{tabSelected && tabSelected.label}</p>
+    </AdminPanelStyled>
+  );
 };
 
 const AdminPanelStyled = styled.div`

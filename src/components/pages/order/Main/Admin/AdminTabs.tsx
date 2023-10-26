@@ -23,7 +23,7 @@ export const AdminTabs: React.FC<AdminTabsProps> = ({
 
   const { currentTabSelected, setCurrentTabSelected } = orderContext;
 
-  const tabs = getTabsConfig(currentTabSelected);
+  const tabs = getTabsConfig();
 
   const selectTab = (tabSelected: string) => {
     setIsCollapsed(false);
@@ -35,7 +35,7 @@ export const AdminTabs: React.FC<AdminTabsProps> = ({
       <Tab
         key="panelUpDown"
         label=""
-        Icon={isCollapsed ? <FiChevronDown /> : <FiChevronUp />}
+        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         onClick={() => setIsCollapsed(!isCollapsed)}
         className={isCollapsed ? "is-active" : ""}
       />
@@ -45,7 +45,7 @@ export const AdminTabs: React.FC<AdminTabsProps> = ({
           label={tab.label}
           Icon={tab.Icon}
           onClick={() => selectTab(tab.index)}
-          className={tab.className}
+          className={currentTabSelected === tab.index ? "is-active" : ""}
         />
       ))}
     </AdminTabsStyled>
