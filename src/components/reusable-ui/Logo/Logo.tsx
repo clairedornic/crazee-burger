@@ -1,30 +1,32 @@
-import styled from 'styled-components';
-import { theme } from '../../../assets/styles/theme/theme-design';
+import styled from "styled-components";
+import { theme } from "../../../assets/styles/theme/theme-design";
 
 interface LogoProps {
   className: string;
-  onClick?: () => void; 
+  onClick?: () => void;
 }
 
-export const Logo: React.FC<LogoProps> = ({className, onClick}) => {
+export const Logo: React.FC<LogoProps> = ({ className, onClick }) => {
   return (
     <LogoStyled className={className} onClick={onClick}>
-        <p>Crazee</p>
-        <img src={"./images/logo.png"} alt="Crazee burger avec un burger entre crazee et burger" />
-        <p>Burger</p>
+      <p>Crazee</p>
+      <img
+        src={"./images/logo.png"}
+        alt="Crazee burger avec un burger entre crazee et burger"
+      />
+      <p>Burger</p>
     </LogoStyled>
-  )
-}
+  );
+};
 const LogoStyled = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
 
-    p {
-        font-family: Amatic;
-        color: ${theme.colors.logo};
-        margin: 0;
-    }
+  p {
+    font-family: Amatic;
+    color: ${theme.colors.logo};
+    margin: 0;
+  }
 `;
-

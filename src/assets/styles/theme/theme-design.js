@@ -1,16 +1,16 @@
 const colors = {
-    white: '#fff',
-    gray: '#747B91',
-    extraLightGray: '#E4E5E9',
-    lightGray: '#F5F5F7',
-    mediumGray: '#93A2B1',
-    darkGray: '#292729',
-    black: '#000',
-    primary: '#FF9F1B',
-    logo: '#FFA01B',
-    secondary: '#F56A2C',
-    red:'#FF0000'
-}
+  white: "#fff",
+  gray: "#747B91",
+  extraLightGray: "#E4E5E9",
+  lightGray: "#F5F5F7",
+  mediumGray: "#93A2B1",
+  darkGray: "#292729",
+  black: "#000",
+  primary: "#FF9F1B",
+  logo: "#FFA01B",
+  secondary: "#F56A2C",
+  red: "#FF0000",
+};
 
 const spacing = {
   xxs: "4px",
@@ -20,10 +20,10 @@ const spacing = {
   lg: "32px",
   xl: "52px",
   xxl: "84px",
-}
+};
 
 const fonts = {
-  size : {
+  size: {
     XXXS: "8px",
     XXS: "10px",
     XS: "12px",
@@ -36,7 +36,7 @@ const fonts = {
     P5: "48px",
     P6: "60px",
   },
-  weights : {
+  weights: {
     light: 300,
     regular: 400,
     medium: 500,
@@ -44,29 +44,29 @@ const fonts = {
     bold: 700,
     heavy: 800,
   },
-  family : {
-    title: 'Amatic',
-    text: 'Open Sans'
-  }
-}
+  family: {
+    title: "Amatic",
+    text: "Open Sans",
+  },
+};
 
-const gridUnit = 8
+const gridUnit = 8;
 const borderRadius = {
   subtle: 1,
   round: "5px",
   extraRound: "15px",
   circle: "50%",
-}
+};
 
 const shadows = {
   subtle: "0px -6px 8px -2px rgba(0, 0, 0, 0.1)",
   medium: "-8px 8px 20px 0px rgb(0 0 0 / 20%)",
   strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
-}
+};
 
 const size = {
   full: "100%",
-}
+};
 
 export const theme = {
   colors,
@@ -75,5 +75,5 @@ export const theme = {
   borderRadius,
   shadows,
   spacing,
-  size
-}
+  size,
+};

@@ -1,24 +1,23 @@
-import styled from 'styled-components';
-import { Profile } from './Profile';
-import { ToggleButton } from '../../../reusable-ui/ToggleButton/ToggleButton.tsx';
-import { FcInfo } from 'react-icons/fc';
-import { ToastAdmin } from './ToastAdmin.tsx';
-import { toast } from 'react-toastify';
-import { useContext } from 'react';
-import OrderContext from '../../../../contexts/OrderContext.ts';
+import styled from "styled-components";
+import { Profile } from "./Profile";
+import { ToggleButton } from "../../../reusable-ui/ToggleButton/ToggleButton.tsx";
+import { FcInfo } from "react-icons/fc";
+import { ToastAdmin } from "./ToastAdmin.tsx";
+import { toast } from "react-toastify";
+import { useContext } from "react";
+import OrderContext from "../../../../contexts/OrderContext.ts";
 
 export const RightSide = () => {
-
   const orderContext = useContext(OrderContext);
 
   if (!orderContext) {
-    throw new Error('OrderContext must be used within an OrderProvider');
+    throw new Error("OrderContext must be used within an OrderProvider");
   }
 
   const { isModeAdmin, setIsModeAdmin } = orderContext;
-  
+
   const handleToggleAdminButton = () => {
-    if ( !isModeAdmin ) {
+    if (!isModeAdmin) {
       toast.info("Mode admin activé", {
         icon: <FcInfo size={30} />,
         theme: "dark",
@@ -29,19 +28,25 @@ export const RightSide = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      })
+      });
     }
     setIsModeAdmin(!isModeAdmin);
-  }
+  };
 
   return (
     <RightSideStyled>
-        <ToggleButton isChecked={isModeAdmin} onToggle={handleToggleAdminButton} labelIfChecked="Désactiver le mode admi" labelIfUnchecked="Activer le mode admin" backgroundcolor={"darkGray"}/>
-        <Profile/>
-        <ToastAdmin/>
+      <ToggleButton
+        isChecked={isModeAdmin}
+        onToggle={handleToggleAdminButton}
+        labelIfChecked="Désactiver le mode admi"
+        labelIfUnchecked="Activer le mode admin"
+        backgroundcolor={"darkGray"}
+      />
+      <Profile />
+      <ToastAdmin />
     </RightSideStyled>
-  )
-}
+  );
+};
 
 const RightSideStyled = styled.div`
   display: flex;
