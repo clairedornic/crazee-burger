@@ -1,7 +1,7 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 
-export const getTabsConfig = (): TabsConfig[] => [
+export const tabsConfig = [
   {
     index: "add",
     label: "Ajouter un produit",

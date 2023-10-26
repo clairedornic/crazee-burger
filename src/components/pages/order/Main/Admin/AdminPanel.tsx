@@ -2,7 +2,7 @@ import { useContext } from "react";
 import OrderContext from "../../../../../contexts/OrderContext";
 import { theme } from "../../../../../assets/styles/theme/theme-design";
 import styled from "styled-components";
-import { getTabsConfig, getTabSelected } from "./tabsconfig";
+import { tabsConfig, getTabSelected } from "./tabsconfig";
 
 export const AdminPanel = () => {
   const orderContext = useContext(OrderContext);
@@ -13,7 +13,7 @@ export const AdminPanel = () => {
 
   const { currentTabSelected } = orderContext;
 
-  const tabs = getTabsConfig();
+  const tabs = tabsConfig;
 
   const tabSelected = getTabSelected(tabs, currentTabSelected);
 
