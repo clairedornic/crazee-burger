@@ -23,10 +23,7 @@ export const AdminTabs: React.FC<AdminTabsProps> = ({
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const {
-    currentTabSelected,
-    setCurrentTabSelected,
-  } = orderContext;
+  const { currentTabSelected, setCurrentTabSelected } = orderContext;
 
   const tabsConfig = [
     // {
