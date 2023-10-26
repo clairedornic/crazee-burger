@@ -5,7 +5,7 @@ import { FiChevronUp } from "react-icons/fi";
 import { FiChevronDown } from "react-icons/fi";
 import { theme } from "../../../../../assets/styles/theme/theme-design";
 import OrderContext from "../../../../../contexts/OrderContext";
-import { tabsConfig } from "./tabsconfig";
+import { getTabsConfig } from "./tabsconfig";
 interface AdminTabsProps {
   isCollapsed: boolean;
   setIsCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,7 +23,7 @@ export const AdminTabs: React.FC<AdminTabsProps> = ({
 
   const { currentTabSelected, setCurrentTabSelected } = orderContext;
 
-  const tabs = tabsConfig(currentTabSelected);
+  const tabs = getTabsConfig(currentTabSelected);
 
   const selectTab = (tabSelected: string) => {
     setIsCollapsed(false);

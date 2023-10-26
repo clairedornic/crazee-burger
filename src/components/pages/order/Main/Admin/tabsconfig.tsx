@@ -8,7 +8,7 @@ interface TabsConfig {
   Icon: React.ReactNode;
 }
 
-export const tabsConfig = (currentTabSelected: string): TabsConfig[] => [
+export const getTabsConfig = (currentTabSelected: string): TabsConfig[] => [
   // {
   //   index: "panelUpDown",
   //   label: "",
