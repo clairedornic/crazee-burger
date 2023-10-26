@@ -23,51 +23,53 @@ export const AdminTabs: React.FC<AdminTabsProps> = ({
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const { isEditSelected, setIsEditSelected, isAddSelected, setIsAddSelected } =
-    orderContext;
-
-  const selectTab = (tabSelected: string) => {
-    setIsCollapsed(false);
-
-    if (tabSelected === "add") {
-      setIsAddSelected(true);
-      setIsEditSelected(false);
-    }
-
-    if (tabSelected === "edit") {
-      setIsEditSelected(true);
-      setIsAddSelected(false);
-    }
-  };
+  const {
+    currentTabSelected,
+    setCurrentTabSelected,
+  } = orderContext;
 
   const tabsConfig = [
+    // {
+    //   index: "panelUpDown",
+    //   label: "",
+    //   Icon: isCollapsed ? <FiChevronDown /> : <FiChevronUp />,
+    //   onClick: () => setIsCollapsed(!isCollapsed),
+    //   className: !isCollapsed ? "is-active" : "",
+    // },
     {
-      label: "",
-      Icon: isCollapsed ? <FiChevronDown /> : <FiChevronUp />,
-      onClick: () => setIsCollapsed(!isCollapsed),
-      className: !isCollapsed ? "is-active" : "",
-    },
-    {
+      index: "add",
       label: "Ajouter un produit",
       Icon: <AiOutlinePlus />,
-      onClick: () => selectTab("add"),
-      className: !isAddSelected ? "is-active" : "",
+      className: currentTabSelected === "add" ? "is-active" : "",
     },
     {
+      index: "edit",
       label: "Modifier un produit",
       Icon: <MdModeEditOutline />,
-      onClick: () => selectTab("edit"),
-      className: !isEditSelected ? "is-active" : "",
+      className: currentTabSelected === "edit" ? "is-active" : "",
     },
   ];
 
+  const selectTab = (tabSelected: string) => {
+    setIsCollapsed(false);
+    setCurrentTabSelected(tabSelected);
+  };
+
   return (
     <AdminTabsStyled>
+      <Tab
+        key="panelUpDown"
+        label=""
+        Icon={isCollapsed ? <FiChevronDown /> : <FiChevronUp />}
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        className={isCollapsed ? "is-active" : ""}
+      />
       {tabsConfig.map((tab) => (
         <Tab
+          key={tab.index}
           label={tab.label}
           Icon={tab.Icon}
-          onClick={tab.onClick}
+          onClick={() => selectTab(tab.index)}
           className={tab.className}
         />
       ))}

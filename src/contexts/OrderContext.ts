@@ -4,19 +4,15 @@ import { createContext } from "react";
 interface OrderContextProps {
   isModeAdmin: boolean;
   setIsModeAdmin: React.Dispatch<React.SetStateAction<boolean>>;
-  isEditSelected: boolean;
-  setIsEditSelected: React.Dispatch<React.SetStateAction<boolean>>;
-  isAddSelected: boolean;
-  setIsAddSelected: React.Dispatch<React.SetStateAction<boolean>>;
+  currentTabSelected: string;
+  setCurrentTabSelected: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const OrderContext = createContext<OrderContextProps | undefined>({
   isModeAdmin: false,
   setIsModeAdmin: () => {},
-  isEditSelected: false,
-  setIsEditSelected: () => {},
-  isAddSelected: false,
-  setIsAddSelected: () => {},
+  currentTabSelected: "add",
+  setCurrentTabSelected: () => {},
 });
 
 export default OrderContext;
