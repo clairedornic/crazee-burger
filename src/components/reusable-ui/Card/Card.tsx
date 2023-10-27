@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { PrimaryButton } from "../PrimaryButton/PrimaryButton";
 import { theme } from "../../../assets/styles/theme/theme-design";
+import { TiDelete } from "react-icons/ti";
 
 interface CardProps {
   title: string;
@@ -17,6 +18,9 @@ export const Card: React.FC<CardProps> = ({
     <CardStyled>
       <img src={imageSource} alt={title} />
       <div className="content">
+        <button className="remove">
+          <TiDelete className="icon" />
+        </button>
         <p className="title">{title}</p>
         <div className="description">
           <p className="left-description">{leftDescription}</p>
@@ -30,6 +34,7 @@ export const Card: React.FC<CardProps> = ({
 };
 
 const CardStyled = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -48,6 +53,31 @@ const CardStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    .remove {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      padding: 0;
+      border: 0;
+
+      .icon {
+        color: ${theme.colors.primary};
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          color: ${theme.colors.lightRed};
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
 
     .title {
       font-size: ${theme.fonts.size.P4};

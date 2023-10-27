@@ -10,6 +10,7 @@ const colors = {
   logo: "#FFA01B",
   secondary: "#F56A2C",
   red: "#FF0000",
+  lightRed: "#E25549",
 };
 
 const spacing = {
