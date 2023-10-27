@@ -19,7 +19,7 @@ export const AdminPanel = () => {
 
   return (
     <AdminPanelStyled>
-      <p>{tabSelected && tabSelected.label}</p>
+      <p>{tabSelected && tabSelected.content}</p>
     </AdminPanelStyled>
   );
 };
