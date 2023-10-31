@@ -3,6 +3,8 @@ import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import { useState } from "react";
+import { PrimaryButton } from "../../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
+import styled from "styled-components";
 
 export const AddProduct = () => {
   interface AddProductFormInput {
@@ -55,7 +57,7 @@ export const AddProduct = () => {
   };
 
   return (
-    <div>
+    <AddProductStyled>
       <div className="img-container"></div>
       <div className="infos-container">
         {addProductFormInputs.map((input, index) => (
@@ -68,12 +70,25 @@ export const AddProduct = () => {
             required
           />
         ))}
+        <div className="submit-container">
+          <PrimaryButton
+            type="submit"
+            label="Ajouter un nouveau produit au menu"
+            Icon=""
+          />
+        </div>
       </div>
       <span>
         <p>{valueInputs.name}</p>
         <p>{valueInputs.linkImage}</p>
         <p>{valueInputs.price}</p>
       </span>
-    </div>
+    </AddProductStyled>
   );
 };
+
+const AddProductStyled = styled.div`
+  .submit-container {
+    max-width: 275px;
+  }
+`;
