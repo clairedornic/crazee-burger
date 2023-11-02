@@ -5,6 +5,7 @@ import { MdOutlineEuro } from "react-icons/md";
 import { useState } from "react";
 import { PrimaryButton } from "../../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
 import styled from "styled-components";
+import { theme } from "../../../../../../assets/styles/theme/theme-design";
 
 export const AddProduct = () => {
   interface AddProductFormInput {
@@ -67,6 +68,9 @@ export const AddProduct = () => {
             onChange={(e) => handleInputChange(e, input.id)}
             placeholder={input.placeholder}
             Icon={input.Icon}
+            textColor="#A7A8AD"
+            iconColor={theme.colors.gray}
+            bgColor={theme.colors.lightGray}
             required
           />
         ))}
