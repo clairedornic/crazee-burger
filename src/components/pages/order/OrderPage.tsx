@@ -3,18 +3,21 @@ import styled from "styled-components";
 import { theme } from "../../../assets/styles/theme/theme-design";
 import { Navbar } from "./Navbar/Navbar";
 import { Main } from "./Main/Main";
+import { fakeMenu } from "../../../assets/datas/menu";
 import OrderContext from "../../../contexts/OrderContext";
-
 
 export const OrderPage = () => {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [products, setProducts] = useState(fakeMenu);
 
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
     currentTabSelected,
     setCurrentTabSelected,
+    products,
+    setProducts,
   };
 
   return (
@@ -34,7 +37,7 @@ const OrderPageStyled = styled.div`
   background-color: ${theme.colors.primary};
   padding: 24px 56px;
   height: calc(100vh - 48px);
-        
+
   .container {
     position: relative;
     max-width: 1400px;

@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Card } from "../../../../reusable-ui/Card/Card.tsx";
 import styled from "styled-components";
-import { fakeMenu } from "../../../../../assets/datas/menu.ts";
 import { formatPrice } from "../../../../../utils/maths.ts";
+import OrderContext from "../../../../../contexts/OrderContext";
 
 export const Menu = () => {
-  const [products] = useState(fakeMenu);
+  const orderContext = useContext(OrderContext);
+
+  if (!orderContext) {
+    throw new Error("OrderContext must be used within an OrderProvider");
+  }
+
+  const { products } = orderContext;
 
   return (
     <MenuStyled>
