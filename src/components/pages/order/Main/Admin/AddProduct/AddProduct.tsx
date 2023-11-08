@@ -139,7 +139,10 @@ export const AddProduct = () => {
           />
           {isAddedProductNotificationVisible && (
             <span className="success-added-product-notification">
-              <FiCheck /> Ajouté avec succès !
+              <span class="icon-container">
+                <FiCheck />
+              </span>{" "}
+              Ajouté avec succès !
             </span>
           )}
         </div>
@@ -186,10 +189,33 @@ const AddProductStyled = styled.div`
   }
 
   .submit-container {
+    display: flex;
     width: fit-content;
+    gap: 15px;
+
+    .success-added-product-notification {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      gap: 5px;
+      color: ${theme.colors.green};
+      font-size: 15px;
+      font-weight: 400;
+
+      .icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid ${theme.colors.green};
+        border-radius: ${theme.borderRadius.extraRound};
+        width: 19px;
+        height: 19px;
+      }
+    }
   }
 
   .add-product-button {
+    height: fit-content;
     background: ${theme.colors.green};
     border: 1px solid ${theme.colors.green};
     padding: 10px 30px;
