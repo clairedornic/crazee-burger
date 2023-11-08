@@ -82,6 +82,7 @@ export const AddProduct = () => {
             type="submit"
             label="Ajouter un nouveau produit au menu"
             Icon=""
+            className="add-product-button"
           />
         </div>
       </div>
@@ -95,7 +96,14 @@ export const AddProduct = () => {
 };
 
 const AddProductStyled = styled.div`
-  .submit-container {
-    max-width: 275px;
+  .add-product-button {
+    background: ${theme.colors.green};
+    border: 1px solid ${theme.colors.green};
+    padding: 10px 30px;
+
+    &:hover {
+      background: ${theme.colors.white};
+      color: ${theme.colors.green};
+    }
   }
 `;

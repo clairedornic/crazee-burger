@@ -5,6 +5,7 @@ interface PrimaryButtonProps {
   type: "submit" | "reset" | "button";
   label: string;
   Icon?: React.ReactNode;
+  className?: string;
   [key: string]: unknown;
 }
 
@@ -12,9 +13,10 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   type,
   label,
   Icon,
+  className,
 }) => {
   return (
-    <PrimaryButtonStyled type={type}>
+    <PrimaryButtonStyled type={type} className={className}>
       <label>{label}</label>
       {Icon && Icon}
     </PrimaryButtonStyled>
