@@ -40,6 +40,7 @@ export const LoginForm = () => {
         </div>
         <div className="login-form">
           <TextInput
+            type="text"
             value={firstname}
             onChange={handleChange}
             placeholder={"Entrez votre prénom"}

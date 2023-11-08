@@ -10,8 +10,11 @@ import { theme } from "../../../../../../assets/styles/theme/theme-design";
 export const AddProduct = () => {
   interface AddProductFormInput {
     id: string;
+    type: string;
     placeholder: string;
     Icon: React.ReactNode;
+    lang?: string;
+    step?: string;
   }
 
   interface InitialValueInputs {
@@ -23,19 +26,24 @@ export const AddProduct = () => {
   const addProductFormInputs: AddProductFormInput[] = [
     {
       id: "name",
+      type: "text",
       placeholder: "Nom du produit (ex: Super Burger)",
       Icon: <FaHamburger />,
     },
     {
       id: "linkImage",
+      type: "url",
       placeholder:
         "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
       Icon: <BsFillCameraFill />,
     },
     {
       id: "price",
+      type: "number",
       placeholder: "Prix",
       Icon: <MdOutlineEuro />,
+      lang: "fr_FR",
+      step: "0.01",
     },
   ];
 
@@ -69,11 +77,14 @@ export const AddProduct = () => {
         {addProductFormInputs.map((input, index) => (
           <TextInput
             key={index}
+            type={input.type}
             value={valueInputs[input.id]}
             onChange={(e) => handleInputChange(e, input.id)}
             placeholder={input.placeholder}
             Icon={input.Icon}
             className="add-product-inputs"
+            step={input.step}
+            lang={input.lang}
             required
           />
         ))}

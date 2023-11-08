@@ -2,30 +2,48 @@ import { theme } from "../../../assets/styles/theme/theme-design";
 import styled from "styled-components";
 
 interface TextInputProps {
+  type: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   Icon?: React.ReactNode;
   className?: string;
+  step?: string;
+  lang?: string;
   [key: string]: unknown;
 }
 
 export const TextInput: React.FC<TextInputProps> = ({
+  type,
   value,
   onChange,
   Icon,
   className,
+  step,
+  lang,
   ...restProps
 }) => {
   return (
     <TextInputStyled className={className}>
       {Icon && Icon}
-      <input
-        type="text"
-        name="firstname"
-        value={value}
-        onChange={onChange}
-        {...restProps}
-      />
+      {type === "number" ? (
+        <input
+          type={type}
+          name="firstname"
+          value={value}
+          step={step}
+          lang={lang}
+          onChange={onChange}
+          {...restProps}
+        />
+      ) : (
+        <input
+          type={type}
+          name="firstname"
+          value={value}
+          onChange={onChange}
+          {...restProps}
+        />
+      )}
     </TextInputStyled>
   );
 };
