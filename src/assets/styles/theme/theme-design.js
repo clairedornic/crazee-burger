@@ -11,6 +11,7 @@ const colors = {
   secondary: "#F56A2C",
   red: "#FF0000",
   lightRed: "#E25549",
+  green: "#60BD4F",
 };
 
 const spacing = {
