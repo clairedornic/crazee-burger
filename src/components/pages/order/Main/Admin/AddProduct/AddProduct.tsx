@@ -2,12 +2,20 @@ import { TextInput } from "../../../../../reusable-ui/TextInput/TextInput.tsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { PrimaryButton } from "../../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
 import styled from "styled-components";
 import { theme } from "../../../../../../assets/styles/theme/theme-design";
+import OrderContext from "../../../../../../contexts/OrderContext";
 
 export const AddProduct = () => {
+  const orderContext = useContext(OrderContext);
+
+  if (!orderContext) {
+    throw new Error("OrderContext must be used within an OrderProvider");
+  }
+
+  const { products, setProducts } = orderContext;
   interface AddProductFormInput {
     id: string;
     type: string;
@@ -65,12 +73,30 @@ export const AddProduct = () => {
     setValueInputs({ ...valueInputs, [id]: value });
   };
 
+  const addProduct = () => {
+    const newProduct = {
+      id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
+      imageSource: valueInputs.linkImage,
+      title: valueInputs.name,
+      price: valueInputs.price,
+      quantity: 0,
+      isAvailable: true,
+      isAdvertised: false,
+    };
+
+    setProducts([...products, newProduct]);
+    setValueInputs(initialValueInputs);
+  };
+
   return (
     <AddProductStyled>
       <div className="img-container">
         <span className="img-frame">
-          <p>Aucune Image</p>
-          <img src="" alt="" title="" />
+          {valueInputs.linkImage ? (
+            <img src={valueInputs.linkImage} alt="" title="" />
+          ) : (
+            <p>Aucune Image</p>
+          )}
         </span>
       </div>
       <div className="infos-container">
@@ -94,6 +120,7 @@ export const AddProduct = () => {
             label="Ajouter un nouveau produit au menu"
             Icon=""
             className="add-product-button"
+            onClick={addProduct}
           />
         </div>
       </div>
@@ -129,6 +156,8 @@ const AddProductStyled = styled.div`
       }
 
       img {
+        width: 100%;
+        height: 100%;
         object-fit: contain;
       }
     }
@@ -149,10 +178,19 @@ const AddProductStyled = styled.div`
     background: ${theme.colors.green};
     border: 1px solid ${theme.colors.green};
     padding: 10px 30px;
+    z-index: 2;
 
     &:hover {
       background: ${theme.colors.white};
       color: ${theme.colors.green};
+
+      &:focus {
+        color: ${theme.colors.green};
+      }
+    }
+
+    &:focus {
+      color: ${theme.colors.white};
     }
   }
 `;
