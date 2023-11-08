@@ -144,11 +144,6 @@ export const AddProduct = () => {
           )}
         </div>
       </div>
-      {/* <span>
-        <p>{valueInputs.name}</p>
-        <p>{valueInputs.linkImage}</p>
-        <p>{valueInputs.price}</p>
-      </span> */}
     </AddProductStyled>
   );
 };
