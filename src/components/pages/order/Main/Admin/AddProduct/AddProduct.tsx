@@ -1,6 +1,7 @@
 import { TextInput } from "../../../../../reusable-ui/TextInput/TextInput.tsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
+import { FiCheck } from "react-icons/fi";
 import { MdOutlineEuro } from "react-icons/md";
 import { useContext, useState } from "react";
 import { PrimaryButton } from "../../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
@@ -9,6 +10,10 @@ import { theme } from "../../../../../../assets/styles/theme/theme-design";
 import OrderContext from "../../../../../../contexts/OrderContext";
 
 export const AddProduct = () => {
+  const [
+    isAddedProductNotificationVisible,
+    setAddedProductNotificationVisible,
+  ] = useState(false);
   const orderContext = useContext(OrderContext);
 
   if (!orderContext) {
@@ -73,6 +78,14 @@ export const AddProduct = () => {
     setValueInputs({ ...valueInputs, [id]: value });
   };
 
+  const successAddedProductNotification = () => {
+    setAddedProductNotificationVisible(true);
+
+    setTimeout(() => {
+      setAddedProductNotificationVisible(false);
+    }, 2000);
+  };
+
   const addProduct = () => {
     const newProduct = {
       id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
@@ -86,6 +99,8 @@ export const AddProduct = () => {
 
     setProducts([...products, newProduct]);
     setValueInputs(initialValueInputs);
+
+    successAddedProductNotification();
   };
 
   return (
@@ -122,6 +137,11 @@ export const AddProduct = () => {
             className="add-product-button"
             onClick={addProduct}
           />
+          {isAddedProductNotificationVisible && (
+            <span className="success-added-product-notification">
+              <FiCheck /> Ajouté avec succès !
+            </span>
+          )}
         </div>
       </div>
       {/* <span>
