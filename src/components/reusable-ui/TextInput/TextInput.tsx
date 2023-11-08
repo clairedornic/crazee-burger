@@ -1,16 +1,11 @@
 import { theme } from "../../../assets/styles/theme/theme-design";
 import styled from "styled-components";
 
-type TextInputStyledTypes = {
-  $textColor: string;
-  $iconColor: string;
-  $bgColor: string;
-};
-
-interface TextInputProps extends TextInputStyledTypes {
+interface TextInputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   Icon?: React.ReactNode;
+  className?: string;
   [key: string]: unknown;
 }
 
@@ -18,17 +13,11 @@ export const TextInput: React.FC<TextInputProps> = ({
   value,
   onChange,
   Icon,
-  $textColor,
-  $iconColor,
-  $bgColor,
+  className,
   ...restProps
 }) => {
   return (
-    <TextInputStyled
-      $textColor={$textColor}
-      $iconColor={$iconColor}
-      $bgColor={$bgColor}
-    >
+    <TextInputStyled className={className}>
       {Icon && Icon}
       <input
         type="text"
@@ -41,16 +30,16 @@ export const TextInput: React.FC<TextInputProps> = ({
   );
 };
 
-const TextInputStyled = styled.div<TextInputStyledTypes>`
+const TextInputStyled = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 18px 24px;
-  background-color: ${(props) => props.$bgColor};
+  padding: 8px 24px;
+  background-color: ${theme.colors.lightGray};
   border-radius: ${theme.borderRadius.round};
 
   svg {
-    color: ${(props) => props.$iconColor};
+    color: ${theme.colors.gray};
   }
 
   input {

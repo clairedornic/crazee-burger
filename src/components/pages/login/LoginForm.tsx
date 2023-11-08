@@ -44,9 +44,7 @@ export const LoginForm = () => {
             onChange={handleChange}
             placeholder={"Entrez votre prénom"}
             Icon={<BsPersonCircle className="icon-input" />}
-            $textColor="#D3D3D3"
-            $iconColor={theme.colors.gray}
-            $bgColor={theme.colors.white}
+            className="login-inputs"
             required
           />
           <PrimaryButton
@@ -121,6 +119,17 @@ const Form = styled.form`
 
     .icon-button {
       color: ${theme.colors.white};
+    }
+
+    .login-inputs {
+      background-color: ${theme.colors.white};
+      padding: 18px 24px;
+
+      input {
+        &::placeholder {
+          color: #d3d3d3;
+        }
+      }
     }
   }
 `;
