@@ -2,9 +2,9 @@ import { theme } from "../../../assets/styles/theme/theme-design";
 import styled from "styled-components";
 
 type TextInputStyledTypes = {
-  textColor: string;
-  iconColor: string;
-  bgColor: string;
+  $textColor: string;
+  $iconColor: string;
+  $bgColor: string;
 };
 
 interface TextInputProps extends TextInputStyledTypes {
@@ -18,16 +18,16 @@ export const TextInput: React.FC<TextInputProps> = ({
   value,
   onChange,
   Icon,
-  textColor,
-  iconColor,
-  bgColor,
+  $textColor,
+  $iconColor,
+  $bgColor,
   ...restProps
 }) => {
   return (
     <TextInputStyled
-      textColor={textColor}
-      iconColor={iconColor}
-      bgColor={bgColor}
+      $textColor={$textColor}
+      $iconColor={$iconColor}
+      $bgColor={$bgColor}
     >
       {Icon && Icon}
       <input
@@ -46,11 +46,11 @@ const TextInputStyled = styled.div<TextInputStyledTypes>`
   align-items: center;
   gap: 14px;
   padding: 18px 24px;
-  background-color: ${(props) => props.bgColor};
+  background-color: ${(props) => props.$bgColor};
   border-radius: ${theme.borderRadius.round};
 
   svg {
-    color: ${(props) => props.iconColor};
+    color: ${(props) => props.$iconColor};
   }
 
   input {

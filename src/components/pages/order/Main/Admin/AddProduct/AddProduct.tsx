@@ -59,7 +59,10 @@ export const AddProduct = () => {
 
   return (
     <AddProductStyled>
-      <div className="img-container"></div>
+      <div className="img-container">
+        <p>Aucune Image</p>
+        <img src="" alt="" title="" />
+      </div>
       <div className="infos-container">
         {addProductFormInputs.map((input, index) => (
           <TextInput
@@ -68,9 +71,9 @@ export const AddProduct = () => {
             onChange={(e) => handleInputChange(e, input.id)}
             placeholder={input.placeholder}
             Icon={input.Icon}
-            textColor="#A7A8AD"
-            iconColor={theme.colors.gray}
-            bgColor={theme.colors.lightGray}
+            $textColor="#A7A8AD"
+            $iconColor={theme.colors.gray}
+            $bgColor={theme.colors.lightGray}
             required
           />
         ))}
@@ -82,11 +85,11 @@ export const AddProduct = () => {
           />
         </div>
       </div>
-      <span>
+      {/* <span>
         <p>{valueInputs.name}</p>
         <p>{valueInputs.linkImage}</p>
         <p>{valueInputs.price}</p>
-      </span>
+      </span> */}
     </AddProductStyled>
   );
 };

@@ -44,9 +44,9 @@ export const LoginForm = () => {
             onChange={handleChange}
             placeholder={"Entrez votre prénom"}
             Icon={<BsPersonCircle className="icon-input" />}
-            textColor="#D3D3D3"
-            iconColor={theme.colors.gray}
-            bgColor={theme.colors.white}
+            $textColor="#D3D3D3"
+            $iconColor={theme.colors.gray}
+            $bgColor={theme.colors.white}
             required
           />
           <PrimaryButton
