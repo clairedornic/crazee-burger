@@ -25,9 +25,11 @@ export const AdminPanel = () => {
 };
 
 const AdminPanelStyled = styled.div`
+  box-sizing: border-box;
   height: 250px;
   z-index: 1;
   border: 1px solid ${theme.colors.extraLightGray};
   background: ${theme.colors.white};
   box-shadow: ${theme.shadows.subtle};
+  padding: 30px 70px 45px 70px;
 `;
