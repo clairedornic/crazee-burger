@@ -139,7 +139,7 @@ export const AddProduct = () => {
           />
           {isAddedProductNotificationVisible && (
             <span className="success-added-product-notification">
-              <span class="icon-container">
+              <span className="icon-container">
                 <FiCheck />
               </span>{" "}
               Ajouté avec succès !
