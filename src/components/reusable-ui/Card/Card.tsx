@@ -7,18 +7,20 @@ interface CardProps {
   title: string;
   leftDescription: number | string;
   imageSource: string;
+  onClick: (productId: number) => void;
 }
 
 export const Card: React.FC<CardProps> = ({
   title,
   leftDescription,
   imageSource,
+  onClick,
 }) => {
   return (
     <CardStyled>
       <img src={imageSource} alt={title} />
       <div className="content">
-        <button className="remove">
+        <button className="remove" onClick={onClick}>
           <TiDelete className="icon" />
         </button>
         <p className="title">{title}</p>
