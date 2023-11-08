@@ -60,8 +60,10 @@ export const AddProduct = () => {
   return (
     <AddProductStyled>
       <div className="img-container">
-        <p>Aucune Image</p>
-        <img src="" alt="" title="" />
+        <span className="img-frame">
+          <p>Aucune Image</p>
+          <img src="" alt="" title="" />
+        </span>
       </div>
       <div className="infos-container">
         {addProductFormInputs.map((input, index) => (
@@ -71,9 +73,7 @@ export const AddProduct = () => {
             onChange={(e) => handleInputChange(e, input.id)}
             placeholder={input.placeholder}
             Icon={input.Icon}
-            $textColor="#A7A8AD"
-            $iconColor={theme.colors.gray}
-            $bgColor={theme.colors.lightGray}
+            className="add-product-inputs"
             required
           />
         ))}
@@ -96,6 +96,44 @@ export const AddProduct = () => {
 };
 
 const AddProductStyled = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .img-container {
+    align-self: flex-start;
+
+    .img-frame {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid ${theme.colors.extraLightGray};
+      width: 215px;
+      height: 120px;
+      border-radius: ${theme.borderRadius.round};
+
+      p {
+        font-size: 16px;
+        color: ${theme.colors.mediumGray};
+      }
+
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+
+  .infos-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .submit-container {
+    width: fit-content;
+  }
+
   .add-product-button {
     background: ${theme.colors.green};
     border: 1px solid ${theme.colors.green};
