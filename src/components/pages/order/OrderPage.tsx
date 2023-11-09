@@ -11,6 +11,10 @@ export const OrderPage = () => {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [products, setProducts] = useState(fakeMenu);
 
+  const addProduct = (newProduct: Product) => {
+    setProducts([...products, newProduct]);
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -18,6 +22,7 @@ export const OrderPage = () => {
     setCurrentTabSelected,
     products,
     setProducts,
+    addProduct,
   };
 
   return (

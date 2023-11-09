@@ -1,9 +1,9 @@
+import { FormEvent, useContext, useRef, useState } from "react";
 import { TextInput } from "../../../../../../reusable-ui/TextInput/TextInput.tsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { FiCheck } from "react-icons/fi";
 import { MdOutlineEuro } from "react-icons/md";
-import { useContext, useState } from "react";
 import { PrimaryButton } from "../../../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
 import styled from "styled-components";
 import { theme } from "../../../../../../../assets/styles/theme/theme-design.js";
@@ -20,7 +20,7 @@ export const AddProduct = () => {
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const { products, setProducts } = orderContext;
+  const { products, addProduct } = orderContext;
   interface AddProductFormInput {
     id: string;
     type: string;
@@ -66,6 +66,7 @@ export const AddProduct = () => {
     linkImage: "",
     price: 0,
   };
+  const formRef = useRef<HTMLFormElement>(null);
 
   const [valueInputs, setValueInputs] =
     useState<InitialValueInputs>(initialValueInputs);
@@ -87,25 +88,29 @@ export const AddProduct = () => {
     }, 2000);
   };
 
-  const addProduct = () => {
-    const newProduct = {
-      id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
-      imageSource: valueInputs.linkImage,
-      title: valueInputs.name,
-      price: valueInputs.price,
-      quantity: 0,
-      isAvailable: true,
-      isAdvertised: false,
-    };
+  const newProduct = {
+    id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
+    imageSource: valueInputs.linkImage,
+    title: valueInputs.name,
+    price: valueInputs.price,
+    quantity: 0,
+    isAvailable: true,
+    isAdvertised: false,
+  };
 
-    setProducts([...products, newProduct]);
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (formRef.current) {
+      formRef.current.reset();
+    }
+
+    addProduct(newProduct);
     setValueInputs(initialValueInputs);
-
     successAddedProductNotification();
   };
 
   return (
-    <AddProductStyled>
+    <AddProductStyled ref={formRef} action="submit" onSubmit={handleSubmit}>
       <div className="img-container">
         <span className="img-frame">
           {valueInputs.linkImage ? (
@@ -152,7 +157,7 @@ export const AddProduct = () => {
   );
 };
 
-const AddProductStyled = styled.div`
+const AddProductStyled = styled.form`
   display: flex;
   align-items: center;
   gap: 20px;
