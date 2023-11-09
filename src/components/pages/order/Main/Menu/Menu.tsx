@@ -3,6 +3,7 @@ import { Card } from "../../../../reusable-ui/Card/Card.tsx";
 import styled from "styled-components";
 import { formatPrice } from "../../../../../utils/maths.ts";
 import OrderContext from "../../../../../contexts/OrderContext";
+import { EmptyMenu } from "./EmptyMenu/EmptyMenu.tsx";
 
 export const Menu = () => {
   const orderContext = useContext(OrderContext);
@@ -11,7 +12,7 @@ export const Menu = () => {
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const { products, setProducts } = orderContext;
+  const { products, setProducts, isModeAdmin } = orderContext;
 
   const removeProductFromMenu = (productId: number) => {
     setProducts(products.filter((product) => product.id !== productId));
@@ -19,15 +20,19 @@ export const Menu = () => {
 
   return (
     <MenuStyled>
-      {products.map((product) => (
-        <Card
-          key={product.id}
-          title={product.title}
-          leftDescription={formatPrice(product.price)}
-          imageSource={product.imageSource}
-          onClick={() => removeProductFromMenu(product.id)}
-        />
-      ))}
+      {products.length === 0 ? (
+        <EmptyMenu />
+      ) : (
+        products.map((product) => (
+          <Card
+            key={product.id}
+            title={product.title}
+            leftDescription={formatPrice(product.price)}
+            imageSource={product.imageSource}
+            onClick={() => removeProductFromMenu(product.id)}
+          />
+        ))
+      )}
     </MenuStyled>
   );
 };
