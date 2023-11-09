@@ -2,6 +2,7 @@ import { PrimaryButton } from "../../../../../reusable-ui/PrimaryButton/PrimaryB
 import OrderContext from "../../../../../../contexts/OrderContext";
 import { useContext } from "react";
 import styled from "styled-components";
+import { fakeMenu } from "../../../../../../assets/datas/menu";
 import { theme } from "../../../../../../assets/styles/theme/theme-design";
 
 export const EmptyMenu = () => {
@@ -11,9 +12,11 @@ export const EmptyMenu = () => {
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const { isModeAdmin } = orderContext;
+  const { isModeAdmin, setProducts } = orderContext;
 
-  const generateNewProducts = () => {};
+  const generateNewProducts = () => {
+    setProducts(fakeMenu);
+  };
 
   return (
     <EmptyMenuStyled>
