@@ -34,6 +34,7 @@ export const AddProduct = () => {
     name: string;
     linkImage: string;
     price: number;
+    [key: string]: string | number;
   }
 
   const addProductFormInputs: AddProductFormInput[] = [
@@ -119,7 +120,7 @@ export const AddProduct = () => {
           <TextInput
             key={index}
             type={input.type}
-            value={valueInputs[input.id]}
+            value={String(valueInputs[input.id])}
             onChange={(e) => handleInputChange(e, input.id)}
             placeholder={input.placeholder}
             Icon={input.Icon}
