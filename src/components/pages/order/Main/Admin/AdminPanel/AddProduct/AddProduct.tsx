@@ -1,13 +1,13 @@
-import { TextInput } from "../../../../../reusable-ui/TextInput/TextInput.tsx";
+import { TextInput } from "../../../../../../reusable-ui/TextInput/TextInput.tsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { FiCheck } from "react-icons/fi";
 import { MdOutlineEuro } from "react-icons/md";
 import { useContext, useState } from "react";
-import { PrimaryButton } from "../../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
+import { PrimaryButton } from "../../../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
 import styled from "styled-components";
-import { theme } from "../../../../../../assets/styles/theme/theme-design";
-import OrderContext from "../../../../../../contexts/OrderContext";
+import { theme } from "../../../../../../../assets/styles/theme/theme-design.js";
+import OrderContext from "../../../../../../../contexts/OrderContext.ts";
 
 export const AddProduct = () => {
   const [

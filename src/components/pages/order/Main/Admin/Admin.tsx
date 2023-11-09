@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { AdminPanel } from "./AdminPanel";
+import { AdminPanel } from "./AdminPanel/AdminPanel";
 import { AdminTabs } from "./AdminTabs";
 
 export const Admin = () => {
