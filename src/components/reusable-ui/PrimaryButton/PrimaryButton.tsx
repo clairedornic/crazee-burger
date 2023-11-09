@@ -6,7 +6,6 @@ interface PrimaryButtonProps {
   label: string;
   Icon?: React.ReactNode;
   className?: string;
-  onClick?: () => void;
   [key: string]: unknown;
 }
 
@@ -15,10 +14,9 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   label,
   Icon,
   className,
-  onClick,
 }) => {
   return (
-    <PrimaryButtonStyled type={type} className={className} onClick={onClick}>
+    <PrimaryButtonStyled type={type} className={className}>
       <label>{label}</label>
       {Icon && Icon}
     </PrimaryButtonStyled>

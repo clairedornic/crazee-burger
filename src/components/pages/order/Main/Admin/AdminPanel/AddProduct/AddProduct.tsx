@@ -141,7 +141,6 @@ export const AddProduct = () => {
             label="Ajouter un nouveau produit au menu"
             Icon=""
             className="add-product-button"
-            onClick={addProduct}
           />
           {isAddedProductNotificationVisible && (
             <span className="success-added-product-notification">
