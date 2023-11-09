@@ -30,6 +30,7 @@ export const Menu = () => {
             leftDescription={formatPrice(product.price)}
             imageSource={product.imageSource}
             onClick={() => removeProductFromMenu(product.id)}
+            isRemoveButtonVisible={isModeAdmin}
           />
         ))
       )}

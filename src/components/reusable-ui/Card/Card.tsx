@@ -8,6 +8,7 @@ interface CardProps {
   leftDescription: number | string;
   imageSource: string;
   onClick: (productId: number) => void;
+  isRemoveButtonVisible: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -15,14 +16,18 @@ export const Card: React.FC<CardProps> = ({
   leftDescription,
   imageSource,
   onClick,
+  isRemoveButtonVisible,
 }) => {
   return (
     <CardStyled>
       <img src={imageSource} alt={title} />
       <div className="content">
-        <button className="remove" onClick={onClick}>
-          <TiDelete className="icon" />
-        </button>
+        {isRemoveButtonVisible && (
+          <button className="remove" onClick={onClick}>
+            <TiDelete className="icon" />
+          </button>
+        )}
+
         <p className="title">{title}</p>
         <div className="description">
           <p className="left-description">{leftDescription}</p>
