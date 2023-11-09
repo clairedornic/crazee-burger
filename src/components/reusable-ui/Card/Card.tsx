@@ -49,6 +49,7 @@ const CardStyled = styled.div`
   background: ${theme.colors.white};
   box-shadow: ${theme.shadows.medium};
   padding: 50px 25px 30px 25px;
+  height: fit-content;
 
   img {
     width: 100%;
