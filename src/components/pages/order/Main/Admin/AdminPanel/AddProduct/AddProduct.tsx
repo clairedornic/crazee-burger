@@ -79,7 +79,7 @@ export const AddProduct = () => {
     setNewProduct({ ...newProduct, [name]: value });
   };
 
-  const successAddedProductNotification = () => {
+  const displaySuccessMessage = () => {
     setIsSubmitted(true);
 
     setTimeout(() => {
@@ -102,7 +102,7 @@ export const AddProduct = () => {
 
     addProduct(newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
-    successAddedProductNotification();
+    displaySuccessMessage();
   };
 
   return (
