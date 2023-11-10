@@ -9,6 +9,28 @@ import styled from "styled-components";
 import { theme } from "../../../../../../../assets/styles/theme/theme-design.js";
 import OrderContext from "../../../../../../../contexts/OrderContext.ts";
 
+interface AddProductFormInput {
+  id: string;
+  type: string;
+  placeholder: string;
+  Icon: React.ReactNode;
+  lang?: string;
+  step?: string;
+}
+
+interface InitialValueInputs {
+  name: string;
+  linkImage: string;
+  price: number;
+  [key: string]: string | number;
+}
+
+const INITIAL_VALUE_INPUTS: InitialValueInputs = {
+  name: "",
+  linkImage: "",
+  price: 0,
+};
+
 export const AddProduct = () => {
   const [
     isAddedProductNotificationVisible,
@@ -21,21 +43,6 @@ export const AddProduct = () => {
   }
 
   const { products, addProduct } = orderContext;
-  interface AddProductFormInput {
-    id: string;
-    type: string;
-    placeholder: string;
-    Icon: React.ReactNode;
-    lang?: string;
-    step?: string;
-  }
-
-  interface InitialValueInputs {
-    name: string;
-    linkImage: string;
-    price: number;
-    [key: string]: string | number;
-  }
 
   const addProductFormInputs: AddProductFormInput[] = [
     {
@@ -61,15 +68,10 @@ export const AddProduct = () => {
     },
   ];
 
-  const initialValueInputs: InitialValueInputs = {
-    name: "",
-    linkImage: "",
-    price: 0,
-  };
   const formRef = useRef<HTMLFormElement>(null);
 
   const [valueInputs, setValueInputs] =
-    useState<InitialValueInputs>(initialValueInputs);
+    useState<InitialValueInputs>(INITIAL_VALUE_INPUTS);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -105,7 +107,7 @@ export const AddProduct = () => {
     }
 
     addProduct(newProduct);
-    setValueInputs(initialValueInputs);
+    setValueInputs(INITIAL_VALUE_INPUTS);
     successAddedProductNotification();
   };
 
