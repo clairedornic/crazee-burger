@@ -9,6 +9,7 @@ interface OrderContextProps {
   products: Array<Product>;
   addProduct: (newProduct: Product) => void;
   removeProduct: (productId: number) => void;
+  generateNewProducts: () => void;
 }
 
 const OrderContext = createContext<OrderContextProps | undefined>({
@@ -19,6 +20,7 @@ const OrderContext = createContext<OrderContextProps | undefined>({
   products: [],
   addProduct: () => {},
   removeProduct: () => {},
+  generateNewProducts: () => {},
 });
 
 export default OrderContext;

@@ -19,6 +19,10 @@ export const OrderPage = () => {
     setProducts(products.filter((product) => product.id !== productId));
   };
 
+  const generateNewProducts = () => {
+    setProducts(fakeMenu);
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -27,6 +31,7 @@ export const OrderPage = () => {
     products,
     addProduct,
     removeProduct,
+    generateNewProducts,
   };
 
   return (
