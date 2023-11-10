@@ -7,6 +7,7 @@ interface PrimaryButtonProps {
   Icon?: React.ReactNode;
   className?: string;
   [key: string]: unknown;
+  onClick?: () => void;
 }
 
 export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
@@ -14,11 +15,12 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   label,
   Icon,
   className,
+  onClick,
 }) => {
   return (
-    <PrimaryButtonStyled type={type} className={className}>
+    <PrimaryButtonStyled type={type} className={className} onClick={onClick}>
       <label>{label}</label>
-      {Icon && Icon}
+      {Icon && <div className="icon">{Icon}</div>}
     </PrimaryButtonStyled>
   );
 };
@@ -37,6 +39,15 @@ const PrimaryButtonStyled = styled.button`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
+  .icon {
+    display: flex;
+    align-items: center;
+
+    svg {
+      color: ${theme.colors.white};
+    }
+  }
+
   label {
     pointer-events: none;
   }
@@ -47,6 +58,12 @@ const PrimaryButtonStyled = styled.button`
     color: ${theme.colors.primary};
     border: 1px solid ${theme.colors.primary};
     transition: all 0.2s ease-in-out;
+
+    .icon {
+      svg {
+        color: ${theme.colors.primary};
+      }
+    }
   }
 
   &:active {

@@ -45,14 +45,14 @@ export const LoginForm = () => {
             value={firstname}
             onChange={handleChange}
             placeholder={"Entrez votre prénom"}
-            Icon={<BsPersonCircle className="icon-input" />}
+            Icon={<BsPersonCircle />}
             className="login-inputs"
             required
           />
           <PrimaryButton
             type="submit"
             label="Accéder à mon espace"
-            Icon={<BsChevronRight className="icon-button" />}
+            Icon={<BsChevronRight />}
           />
         </div>
       </div>
@@ -118,10 +118,6 @@ const Form = styled.form`
     margin-top: 18px;
     width: 100%;
     gap: 18px;
-
-    .icon-button {
-      color: ${theme.colors.white};
-    }
 
     .login-inputs {
       background-color: ${theme.colors.white};

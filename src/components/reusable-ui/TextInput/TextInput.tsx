@@ -26,7 +26,7 @@ export const TextInput: React.FC<TextInputProps> = ({
 }) => {
   return (
     <TextInputStyled className={className}>
-      {Icon && Icon}
+      {Icon && <div className="icon">{Icon}</div>}
       {type === "number" ? (
         <input
           type={type}
@@ -58,8 +58,13 @@ const TextInputStyled = styled.div`
   background-color: ${theme.colors.lightGray};
   border-radius: ${theme.borderRadius.round};
 
-  svg {
-    color: ${theme.colors.gray};
+  .icon {
+    display: flex;
+    align-items: center;
+    color: ${theme.colors.white};
+    svg {
+      color: ${theme.colors.gray};
+    }
   }
 
   input {
