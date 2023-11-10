@@ -12,11 +12,7 @@ export const Menu = () => {
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const { products, setProducts, isModeAdmin } = orderContext;
-
-  const removeProductFromMenu = (productId: number) => {
-    setProducts(products.filter((product) => product.id !== productId));
-  };
+  const { products, isModeAdmin, removeProduct } = orderContext;
 
   return (
     <MenuStyled>
@@ -29,7 +25,7 @@ export const Menu = () => {
             title={product.title}
             leftDescription={formatPrice(product.price)}
             imageSource={product.imageSource}
-            onClick={() => removeProductFromMenu(product.id)}
+            onClick={() => removeProduct(product.id)}
             isRemoveButtonVisible={isModeAdmin}
           />
         ))

@@ -7,8 +7,8 @@ interface OrderContextProps {
   currentTabSelected: string;
   setCurrentTabSelected: React.Dispatch<React.SetStateAction<string>>;
   products: Array<Product>;
-  setProducts: React.Dispatch<React.SetStateAction<Array<Product>>>;
   addProduct: (newProduct: Product) => void;
+  removeProduct: (productId: number) => void;
 }
 
 const OrderContext = createContext<OrderContextProps | undefined>({
@@ -17,8 +17,8 @@ const OrderContext = createContext<OrderContextProps | undefined>({
   currentTabSelected: "add",
   setCurrentTabSelected: () => {},
   products: [],
-  setProducts: () => {},
   addProduct: () => {},
+  removeProduct: () => {},
 });
 
 export default OrderContext;

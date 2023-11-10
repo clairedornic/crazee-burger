@@ -15,14 +15,18 @@ export const OrderPage = () => {
     setProducts([...products, newProduct]);
   };
 
+  const removeProduct = (productId: number) => {
+    setProducts(products.filter((product) => product.id !== productId));
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
     currentTabSelected,
     setCurrentTabSelected,
     products,
-    setProducts,
     addProduct,
+    removeProduct,
   };
 
   return (
