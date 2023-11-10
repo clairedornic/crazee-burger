@@ -3,7 +3,7 @@ import { Card } from "../../../../reusable-ui/Card/Card.tsx";
 import styled from "styled-components";
 import { formatPrice } from "../../../../../utils/maths.ts";
 import OrderContext from "../../../../../contexts/OrderContext";
-import { EmptyMenu } from "./EmptyMenu/EmptyMenu.tsx";
+import { EmptyMenu } from "./EmptyMenu.tsx";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 

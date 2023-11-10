@@ -1,8 +1,8 @@
-import { PrimaryButton } from "../../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
-import OrderContext from "../../../../../../contexts/OrderContext";
+import { PrimaryButton } from "../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
+import OrderContext from "../../../../../contexts/OrderContext.ts";
 import { useContext } from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../../assets/styles/theme/theme-design";
+import { theme } from "../../../../../assets/styles/theme/theme-design.js";
 
 export const EmptyMenu = () => {
   const orderContext = useContext(OrderContext);
