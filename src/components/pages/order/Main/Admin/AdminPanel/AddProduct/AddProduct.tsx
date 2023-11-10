@@ -93,10 +93,7 @@ export const AddProduct = () => {
 
   const newProduct = {
     id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
-    imageSource:
-      valueInputs.linkImage === ""
-        ? "/images/coming-soon.png"
-        : valueInputs.linkImage,
+    imageSource: valueInputs.linkImage,
     title: valueInputs.name,
     price: valueInputs.price,
     quantity: 0,

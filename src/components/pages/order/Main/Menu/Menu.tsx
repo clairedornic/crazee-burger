@@ -5,6 +5,8 @@ import { formatPrice } from "../../../../../utils/maths.ts";
 import OrderContext from "../../../../../contexts/OrderContext";
 import { EmptyMenu } from "./EmptyMenu/EmptyMenu.tsx";
 
+const DEFAULT_IMAGE = "/images/coming-soon.png";
+
 export const Menu = () => {
   const orderContext = useContext(OrderContext);
 
@@ -19,13 +21,13 @@ export const Menu = () => {
       {products.length === 0 ? (
         <EmptyMenu />
       ) : (
-        products.map((product) => (
+        products.map(({ id, title, price, imageSource }) => (
           <Card
-            key={product.id}
-            title={product.title}
-            leftDescription={formatPrice(product.price)}
-            imageSource={product.imageSource}
-            onClick={() => removeProduct(product.id)}
+            key={id}
+            title={title}
+            leftDescription={formatPrice(price)}
+            imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
+            onClick={() => removeProduct(id)}
             isRemoveButtonVisible={isModeAdmin}
           />
         ))
