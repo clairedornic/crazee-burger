@@ -8,7 +8,7 @@ interface CardProps {
   leftDescription: number | string;
   imageSource: string;
   onClick: () => void;
-  isRemoveButtonVisible: boolean;
+  hasDeleteButton: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -16,18 +16,17 @@ export const Card: React.FC<CardProps> = ({
   leftDescription,
   imageSource,
   onClick,
-  isRemoveButtonVisible,
+  hasDeleteButton,
 }) => {
   return (
     <CardStyled>
+      {hasDeleteButton && (
+        <button className="remove" aria-label="delete-button" onClick={onClick}>
+          <TiDelete className="icon" />
+        </button>
+      )}
       <img src={imageSource} alt={title} />
       <div className="content">
-        {isRemoveButtonVisible && (
-          <button className="remove" onClick={onClick}>
-            <TiDelete className="icon" />
-          </button>
-        )}
-
         <p className="title">{title}</p>
         <div className="description">
           <p className="left-description">{leftDescription}</p>
@@ -51,6 +50,31 @@ const CardStyled = styled.div`
   padding: 50px 25px 30px 25px;
   height: fit-content;
 
+  .remove {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+
+    .icon {
+      color: ${theme.colors.primary};
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: ${theme.colors.lightRed};
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+
   img {
     width: 100%;
     height: 145px;
@@ -61,31 +85,6 @@ const CardStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 15px;
-
-    .remove {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: transparent;
-      padding: 0;
-      border: 0;
-
-      .icon {
-        color: ${theme.colors.primary};
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-          color: ${theme.colors.lightRed};
-          transition: all 0.2s ease-in-out;
-        }
-      }
-    }
 
     .title {
       font-size: ${theme.fonts.size.P4};

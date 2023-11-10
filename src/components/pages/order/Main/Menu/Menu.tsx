@@ -28,7 +28,7 @@ export const Menu = () => {
             leftDescription={formatPrice(price)}
             imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
             onClick={() => removeProduct(id)}
-            isRemoveButtonVisible={isModeAdmin}
+            hasDeleteButton={isModeAdmin}
           />
         ))
       )}
