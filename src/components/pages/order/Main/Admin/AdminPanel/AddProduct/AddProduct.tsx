@@ -33,10 +33,8 @@ const EMPTY_PRODUCT: InitialValueInputs = {
 };
 
 export const AddProduct = () => {
-  const [
-    isAddedProductNotificationVisible,
-    setAddedProductNotificationVisible,
-  ] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const orderContext = useContext(OrderContext);
 
   if (!orderContext) {
@@ -82,10 +80,10 @@ export const AddProduct = () => {
   };
 
   const successAddedProductNotification = () => {
-    setAddedProductNotificationVisible(true);
+    setIsSubmitted(true);
 
     setTimeout(() => {
-      setAddedProductNotificationVisible(false);
+      setIsSubmitted(false);
     }, 2000);
   };
 
@@ -143,7 +141,7 @@ export const AddProduct = () => {
             Icon=""
             className="add-product-button"
           />
-          {isAddedProductNotificationVisible && (
+          {isSubmitted && (
             <span className="success-added-product-notification">
               <span className="icon-container">
                 <FiCheck />
