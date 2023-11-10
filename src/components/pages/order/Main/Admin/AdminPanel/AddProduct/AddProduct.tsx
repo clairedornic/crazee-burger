@@ -43,7 +43,7 @@ export const AddProduct = () => {
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const { products, addProduct } = orderContext;
+  const { addProduct } = orderContext;
 
   const addProductFormInputs: AddProductFormInput[] = [
     {
