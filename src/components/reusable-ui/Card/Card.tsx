@@ -7,7 +7,7 @@ interface CardProps {
   title: string;
   leftDescription: number | string;
   imageSource: string;
-  onClick: () => void;
+  onDelete: () => void;
   hasDeleteButton: boolean;
 }
 
@@ -15,13 +15,17 @@ export const Card: React.FC<CardProps> = ({
   title,
   leftDescription,
   imageSource,
-  onClick,
+  onDelete,
   hasDeleteButton,
 }) => {
   return (
     <CardStyled>
       {hasDeleteButton && (
-        <button className="remove" aria-label="delete-button" onClick={onClick}>
+        <button
+          className="remove"
+          aria-label="delete-button"
+          onClick={onDelete}
+        >
           <TiDelete className="icon" />
         </button>
       )}
