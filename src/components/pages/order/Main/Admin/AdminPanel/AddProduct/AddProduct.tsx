@@ -77,11 +77,8 @@ export const AddProduct = () => {
   const [valueInputs, setValueInputs] =
     useState<InitialValueInputs>(INITIAL_VALUE_INPUTS);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    name: string,
-  ) => {
-    const { value } = e.target;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
 
     setValueInputs({ ...valueInputs, [name]: value });
   };
@@ -133,7 +130,7 @@ export const AddProduct = () => {
             type={input.type}
             name={input.name}
             value={String(valueInputs[input.name])}
-            onChange={(e) => handleInputChange(e, input.name)}
+            onChange={(e) => handleInputChange(e)}
             placeholder={input.placeholder}
             Icon={input.Icon}
             className="add-product-inputs"
