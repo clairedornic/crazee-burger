@@ -10,7 +10,8 @@ import { theme } from "../../../../../../../assets/styles/theme/theme-design.js"
 import OrderContext from "../../../../../../../contexts/OrderContext.ts";
 
 interface AddProductFormInput {
-  id: string;
+  id: number;
+  name: string;
   type: string;
   placeholder: string;
   Icon: React.ReactNode;
@@ -46,20 +47,23 @@ export const AddProduct = () => {
 
   const addProductFormInputs: AddProductFormInput[] = [
     {
-      id: "name",
+      id: 1,
+      name: "name",
       type: "text",
       placeholder: "Nom du produit (ex: Super Burger)",
       Icon: <FaHamburger />,
     },
     {
-      id: "linkImage",
+      id: 2,
+      name: "linkImage",
       type: "url",
       placeholder:
         "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
       Icon: <BsFillCameraFill />,
     },
     {
-      id: "price",
+      id: 3,
+      name: "price",
       type: "number",
       placeholder: "Prix",
       Icon: <MdOutlineEuro />,
@@ -75,11 +79,11 @@ export const AddProduct = () => {
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    id: string,
+    name: string,
   ) => {
     const { value } = e.target;
 
-    setValueInputs({ ...valueInputs, [id]: value });
+    setValueInputs({ ...valueInputs, [name]: value });
   };
 
   const successAddedProductNotification = () => {
@@ -127,8 +131,9 @@ export const AddProduct = () => {
           <TextInput
             key={index}
             type={input.type}
-            value={String(valueInputs[input.id])}
-            onChange={(e) => handleInputChange(e, input.id)}
+            name={input.name}
+            value={String(valueInputs[input.name])}
+            onChange={(e) => handleInputChange(e, input.name)}
             placeholder={input.placeholder}
             Icon={input.Icon}
             className="add-product-inputs"

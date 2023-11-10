@@ -41,6 +41,7 @@ export const LoginForm = () => {
         <div className="login-form">
           <TextInput
             type="text"
+            name="firstname"
             value={firstname}
             onChange={handleChange}
             placeholder={"Entrez votre prénom"}

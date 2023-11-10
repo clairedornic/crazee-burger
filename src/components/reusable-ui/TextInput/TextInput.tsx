@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 interface TextInputProps {
   type: string;
+  name: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   Icon?: React.ReactNode;
@@ -14,6 +15,7 @@ interface TextInputProps {
 
 export const TextInput: React.FC<TextInputProps> = ({
   type,
+  name,
   value,
   onChange,
   Icon,
@@ -28,7 +30,7 @@ export const TextInput: React.FC<TextInputProps> = ({
       {type === "number" ? (
         <input
           type={type}
-          name="firstname"
+          name={name}
           value={value}
           step={step}
           lang={lang}
@@ -38,7 +40,7 @@ export const TextInput: React.FC<TextInputProps> = ({
       ) : (
         <input
           type={type}
-          name="firstname"
+          name={name}
           value={value}
           onChange={onChange}
           {...restProps}
