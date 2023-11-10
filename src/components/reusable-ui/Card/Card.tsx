@@ -7,7 +7,7 @@ interface CardProps {
   title: string;
   leftDescription: number | string;
   imageSource: string;
-  onClick: (productId: number) => void;
+  onClick: () => void;
   isRemoveButtonVisible: boolean;
 }
 

@@ -15,7 +15,7 @@ export const OrderPage = () => {
     setProducts([newProduct, ...products]);
   };
 
-  const removeProduct = (productId: number) => {
+  const removeProduct = (productId: string) => {
     setProducts(products.filter((product) => product.id !== productId));
   };
 

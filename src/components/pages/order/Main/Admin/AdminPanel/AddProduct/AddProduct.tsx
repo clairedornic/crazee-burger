@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useId, useRef, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import { TextInput } from "../../../../../../reusable-ui/TextInput/TextInput.tsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
@@ -26,7 +26,7 @@ interface InitialValueInputs {
   [key: string]: string | number;
 }
 
-const INITIAL_VALUE_INPUTS: InitialValueInputs = {
+const EMPTY_PRODUCT: InitialValueInputs = {
   name: "",
   linkImage: "",
   price: 0,
@@ -72,13 +72,13 @@ export const AddProduct = () => {
     },
   ];
 
-  const [valueInputs, setValueInputs] =
-    useState<InitialValueInputs>(INITIAL_VALUE_INPUTS);
+  const [newProduct, setNewProduct] =
+    useState<InitialValueInputs>(EMPTY_PRODUCT);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    setValueInputs({ ...valueInputs, [name]: value });
+    setNewProduct({ ...newProduct, [name]: value });
   };
 
   const successAddedProductNotification = () => {
@@ -89,11 +89,11 @@ export const AddProduct = () => {
     }, 2000);
   };
 
-  const newProduct = {
-    id: useId(),
-    imageSource: valueInputs.linkImage,
-    title: valueInputs.name,
-    price: valueInputs.price,
+  const newProductToAdd = {
+    id: crypto.randomUUID(),
+    imageSource: newProduct.linkImage,
+    title: newProduct.name,
+    price: newProduct.price,
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
@@ -102,8 +102,8 @@ export const AddProduct = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    addProduct(newProduct);
-    setValueInputs(INITIAL_VALUE_INPUTS);
+    addProduct(newProductToAdd);
+    setNewProduct(EMPTY_PRODUCT);
     successAddedProductNotification();
   };
 
@@ -112,7 +112,10 @@ export const AddProduct = () => {
       <div className="img-container">
         <span className="img-frame">
           {newProduct.imageSource ? (
-            <img src={newProduct.imageSource} alt={newProduct.title} />
+            <img
+              src={newProductToAdd.imageSource}
+              alt={newProductToAdd.title}
+            />
           ) : (
             <p>Aucune Image</p>
           )}
@@ -124,7 +127,7 @@ export const AddProduct = () => {
             key={index}
             type={input.type}
             name={input.name}
-            value={String(valueInputs[input.name])}
+            value={String(newProduct[input.name])}
             onChange={(e) => handleInputChange(e)}
             placeholder={input.placeholder}
             Icon={input.Icon}

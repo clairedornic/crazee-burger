@@ -8,7 +8,7 @@ interface OrderContextProps {
   setCurrentTabSelected: React.Dispatch<React.SetStateAction<string>>;
   products: Array<Product>;
   addProduct: (newProduct: Product) => void;
-  removeProduct: (productId: number) => void;
+  removeProduct: (productId: string) => void;
   generateNewProducts: () => void;
 }
 
