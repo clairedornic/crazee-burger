@@ -116,8 +116,8 @@ export const AddProduct = () => {
     <AddProductStyled ref={formRef} action="submit" onSubmit={handleSubmit}>
       <div className="img-container">
         <span className="img-frame">
-          {valueInputs.linkImage ? (
-            <img src={valueInputs.linkImage} alt="" title="" />
+          {newProduct.imageSource ? (
+            <img src={newProduct.imageSource} alt={newProduct.title} />
           ) : (
             <p>Aucune Image</p>
           )}
