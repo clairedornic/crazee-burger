@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useRef, useState } from "react";
+import { FormEvent, useContext, useId, useRef, useState } from "react";
 import { TextInput } from "../../../../../../reusable-ui/TextInput/TextInput.tsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
@@ -72,8 +72,6 @@ export const AddProduct = () => {
     },
   ];
 
-  const formRef = useRef<HTMLFormElement>(null);
-
   const [valueInputs, setValueInputs] =
     useState<InitialValueInputs>(INITIAL_VALUE_INPUTS);
 
@@ -92,7 +90,7 @@ export const AddProduct = () => {
   };
 
   const newProduct = {
-    id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
+    id: useId(),
     imageSource: valueInputs.linkImage,
     title: valueInputs.name,
     price: valueInputs.price,
@@ -103,9 +101,6 @@ export const AddProduct = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (formRef.current) {
-      formRef.current.reset();
-    }
 
     addProduct(newProduct);
     setValueInputs(INITIAL_VALUE_INPUTS);
@@ -113,7 +108,7 @@ export const AddProduct = () => {
   };
 
   return (
-    <AddProductStyled ref={formRef} action="submit" onSubmit={handleSubmit}>
+    <AddProductStyled action="submit" onSubmit={handleSubmit}>
       <div className="img-container">
         <span className="img-frame">
           {newProduct.imageSource ? (
