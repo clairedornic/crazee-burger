@@ -16,22 +16,22 @@ export const Menu = () => {
 
   const { products, isModeAdmin, removeProduct } = orderContext;
 
+  if (products.length === 0) {
+    return <EmptyMenu />;
+  }
+
   return (
     <MenuStyled>
-      {products.length === 0 ? (
-        <EmptyMenu />
-      ) : (
-        products.map(({ id, title, price, imageSource }) => (
-          <Card
-            key={id}
-            title={title}
-            leftDescription={formatPrice(price)}
-            imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
-            onDelete={() => removeProduct(id)}
-            hasDeleteButton={isModeAdmin}
-          />
-        ))
-      )}
+      {products.map(({ id, title, price, imageSource }) => (
+        <Card
+          key={id}
+          title={title}
+          leftDescription={formatPrice(price)}
+          imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
+          onDelete={() => removeProduct(id)}
+          hasDeleteButton={isModeAdmin}
+        />
+      ))}
     </MenuStyled>
   );
 };

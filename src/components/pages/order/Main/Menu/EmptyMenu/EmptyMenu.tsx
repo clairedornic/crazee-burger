@@ -45,6 +45,10 @@ const EmptyMenuStyled = styled.div`
   font-family: "Amatic";
   text-align: center;
   font-size: 36px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 60px;
+  overflow-y: scroll;
 
   p {
     margin: 0;
