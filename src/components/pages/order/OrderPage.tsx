@@ -12,7 +12,7 @@ export const OrderPage = () => {
   const [products, setProducts] = useState(fakeMenu);
 
   const addProduct = (newProduct: Product) => {
-    setProducts([...products, newProduct]);
+    setProducts([newProduct, ...products]);
   };
 
   const removeProduct = (productId: number) => {
