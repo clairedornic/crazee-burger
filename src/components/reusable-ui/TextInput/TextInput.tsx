@@ -7,7 +7,7 @@ interface TextInputProps {
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   Icon?: React.ReactNode;
-  $version: string;
+  $version: "normal" | "minimalist";
   step?: string;
   lang?: string;
   [key: string]: unknown;
