@@ -108,16 +108,13 @@ export const AddProduct = () => {
   return (
     <AddProductStyled action="submit" onSubmit={handleSubmit}>
       <div className="img-container">
-        <span className="img-frame">
-          {newProductToAdd.imageSource ? (
-            <img
-              src={newProductToAdd.imageSource}
-              alt={newProductToAdd.title}
-            />
-          ) : (
+        {newProductToAdd.imageSource ? (
+          <img src={newProductToAdd.imageSource} alt={newProductToAdd.title} />
+        ) : (
+          <span className="img-frame">
             <p>Aucune Image</p>
-          )}
-        </span>
+          </span>
+        )}
       </div>
       <div className="infos-container">
         {addProductFormInputs.map((input, index) => (
@@ -163,26 +160,28 @@ const AddProductStyled = styled.form`
 
   .img-container {
     align-self: flex-start;
+    width: 215px;
+    height: 120px;
 
     .img-frame {
       display: flex;
       justify-content: center;
       align-items: center;
       border: 1px solid ${theme.colors.extraLightGray};
-      width: 215px;
-      height: 120px;
       border-radius: ${theme.borderRadius.round};
+      width: 100%;
+      height: 100%;
 
       p {
         font-size: 16px;
         color: ${theme.colors.mediumGray};
       }
+    }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
   }
 
