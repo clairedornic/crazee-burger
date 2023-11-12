@@ -2,7 +2,6 @@ import { FormEvent, useContext, useState } from "react";
 import { TextInput } from "../../../../../../reusable-ui/TextInput/TextInput.tsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
-import { FiCheck } from "react-icons/fi";
 import { MdOutlineEuro } from "react-icons/md";
 import { Button } from "../../../../../../reusable-ui/Button/Button.tsx";
 import styled from "styled-components";
@@ -10,6 +9,7 @@ import { theme } from "../../../../../../../assets/styles/theme/theme-design.js"
 import OrderContext from "../../../../../../../contexts/OrderContext.ts";
 import { EMPTY_PRODUCT } from "./empty_product.ts";
 import { ImagePreview } from "../ImagePreview.tsx";
+import { SubmitMessage } from "../SubmitMessage.tsx";
 
 interface AddProductFormInput {
   id: number;
@@ -120,14 +120,7 @@ export const AddProduct = () => {
             Icon=""
             $version="green"
           />
-          {isSubmitted && (
-            <span className="success-added-product-notification">
-              <span className="icon-container">
-                <FiCheck />
-              </span>{" "}
-              Ajouté avec succès !
-            </span>
-          )}
+          <SubmitMessage isSubmitted={isSubmitted} />
         </div>
       </div>
     </AddProductStyled>
