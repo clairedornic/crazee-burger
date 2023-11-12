@@ -1,41 +1,44 @@
-import styled from "styled-components";
+import styled, { RuleSet, css } from "styled-components";
 import { theme } from "../../../assets/styles/theme/theme-design";
 
 interface PrimaryButtonProps {
   type: "submit" | "reset" | "button";
   label: string;
   Icon?: React.ReactNode;
-  className?: string;
+  $version?: string;
   [key: string]: unknown;
   onClick?: () => void;
+}
+
+interface ExtraStyle {
+  [key: string]: RuleSet<object>;
 }
 
 export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   type,
   label,
   Icon,
-  className,
+  $version = "default",
   onClick,
 }) => {
   return (
-    <PrimaryButtonStyled type={type} className={className} onClick={onClick}>
+    <PrimaryButtonStyled type={type} $version={$version} onClick={onClick}>
       <label>{label}</label>
       {Icon && <div className="icon">{Icon}</div>}
     </PrimaryButtonStyled>
   );
 };
-const PrimaryButtonStyled = styled.button`
+const PrimaryButtonStyled = styled.button<{ $version: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: fit-content;
   gap: 10px;
-  background-color: ${theme.colors.primary};
-  color: ${theme.colors.white};
   width: 100%;
-  padding: 18px 0;
-  font-family: "Open Sans";
+  z-index: 2;
+  color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.round};
-  border: 1px solid ${theme.colors.primary};
+  font-family: "Open Sans";
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
@@ -55,9 +58,26 @@ const PrimaryButtonStyled = styled.button`
   &:hover,
   &:focus {
     background-color: ${theme.colors.white};
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:active {
+    transition: all 0.2s ease-in-out;
+  }
+
+  ${({ $version }) => extraStyle[$version]}
+`;
+
+const defaultStyle = css`
+  padding: 18px 0;
+  background-color: ${theme.colors.primary};
+  color: ${theme.colors.white};
+  border: 1px solid ${theme.colors.primary};
+
+  &:hover,
+  &:focus {
     color: ${theme.colors.primary};
     border: 1px solid ${theme.colors.primary};
-    transition: all 0.2s ease-in-out;
 
     .icon {
       svg {
@@ -68,8 +88,30 @@ const PrimaryButtonStyled = styled.button`
 
   &:active {
     background-color: ${theme.colors.primary};
-    color: ${theme.colors.white};
     border: 1px solid ${theme.colors.primary};
-    transition: all 0.2s ease-in-out;
   }
 `;
+
+const greenStyle = css`
+  background: ${theme.colors.green};
+  border: 1px solid ${theme.colors.green};
+  padding: 10px 30px;
+
+  &:hover {
+    background: ${theme.colors.white};
+    color: ${theme.colors.green};
+    border: 1px solid ${theme.colors.green};
+
+    &:focus {
+      color: ${theme.colors.green};
+    }
+    &:focus {
+      color: ${theme.colors.white};
+    }
+  }
+`;
+
+const extraStyle: ExtraStyle = {
+  default: defaultStyle,
+  green: greenStyle,
+};

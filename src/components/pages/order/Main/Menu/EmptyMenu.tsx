@@ -23,7 +23,6 @@ export const EmptyMenu = () => {
             type="button"
             label="Générer de nouveaux produits"
             Icon=""
-            className=""
             onClick={generateNewProducts}
           />
         </div>

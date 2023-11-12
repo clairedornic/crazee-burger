@@ -140,7 +140,7 @@ export const AddProduct = () => {
             type="submit"
             label="Ajouter un nouveau produit au menu"
             Icon=""
-            className="add-product-button"
+            $version="green"
           />
           {isSubmitted && (
             <span className="success-added-product-notification">
@@ -216,27 +216,6 @@ const AddProductStyled = styled.form`
         width: 19px;
         height: 19px;
       }
-    }
-  }
-
-  .add-product-button {
-    height: fit-content;
-    background: ${theme.colors.green};
-    border: 1px solid ${theme.colors.green};
-    padding: 10px 30px;
-    z-index: 2;
-
-    &:hover {
-      background: ${theme.colors.white};
-      color: ${theme.colors.green};
-
-      &:focus {
-        color: ${theme.colors.green};
-      }
-    }
-
-    &:focus {
-      color: ${theme.colors.white};
     }
   }
 `;
