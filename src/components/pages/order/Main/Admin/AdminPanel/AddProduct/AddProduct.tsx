@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { theme } from "../../../../../../../assets/styles/theme/theme-design.js";
 import OrderContext from "../../../../../../../contexts/OrderContext.ts";
 import { EMPTY_PRODUCT } from "./empty_product.ts";
+import { ImagePreview } from "../ImagePreview.tsx";
 
 interface AddProductFormInput {
   id: number;
@@ -92,15 +93,10 @@ export const AddProduct = () => {
 
   return (
     <AddProductStyled action="submit" onSubmit={handleSubmit}>
-      <div className="img-container">
-        {newProductToAdd.imageSource ? (
-          <img src={newProductToAdd.imageSource} alt={newProductToAdd.title} />
-        ) : (
-          <span className="img-frame">
-            <p>Aucune Image</p>
-          </span>
-        )}
-      </div>
+      <ImagePreview
+        source={newProductToAdd.imageSource}
+        title={newProductToAdd.title}
+      />
       <div className="infos-container">
         {addProductFormInputs.map((input, index) => (
           <TextInput
