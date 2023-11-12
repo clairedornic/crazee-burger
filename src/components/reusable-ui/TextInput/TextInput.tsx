@@ -1,5 +1,5 @@
 import { theme } from "../../../assets/styles/theme/theme-design";
-import styled, { css } from "styled-components";
+import styled, { RuleSet, css } from "styled-components";
 
 interface TextInputProps {
   type: string;
