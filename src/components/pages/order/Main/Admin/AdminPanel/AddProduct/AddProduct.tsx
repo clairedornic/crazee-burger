@@ -109,7 +109,7 @@ export const AddProduct = () => {
     <AddProductStyled action="submit" onSubmit={handleSubmit}>
       <div className="img-container">
         <span className="img-frame">
-          {newProduct.imageSource ? (
+          {newProductToAdd.imageSource ? (
             <img
               src={newProductToAdd.imageSource}
               alt={newProductToAdd.title}
