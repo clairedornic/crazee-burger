@@ -107,7 +107,7 @@ export const AddProduct = () => {
             key={index}
             type={input.type}
             name={input.name}
-            value={String(newProduct[input.name])}
+            value={String(newProduct[input.name as keyof Product])}
             onChange={(e) => handleInputChange(e)}
             placeholder={input.placeholder}
             Icon={input.Icon}
