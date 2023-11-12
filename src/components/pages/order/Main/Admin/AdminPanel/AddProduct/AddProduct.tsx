@@ -5,7 +5,6 @@ import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import { Button } from "../../../../../../reusable-ui/Button/Button.tsx";
 import styled from "styled-components";
-import { theme } from "../../../../../../../assets/styles/theme/theme-design.js";
 import OrderContext from "../../../../../../../contexts/OrderContext.ts";
 import { EMPTY_PRODUCT } from "./empty_product.ts";
 import { ImagePreview } from "../ImagePreview.tsx";
@@ -143,25 +142,5 @@ const AddProductStyled = styled.form`
     display: flex;
     width: fit-content;
     gap: 15px;
-
-    .success-added-product-notification {
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      gap: 5px;
-      color: ${theme.colors.green};
-      font-size: 15px;
-      font-weight: 400;
-
-      .icon-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid ${theme.colors.green};
-        border-radius: ${theme.borderRadius.extraRound};
-        width: 19px;
-        height: 19px;
-      }
-    }
   }
 `;
