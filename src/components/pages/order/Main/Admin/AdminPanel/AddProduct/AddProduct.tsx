@@ -33,18 +33,13 @@ export const AddProduct = () => {
     }, 2000);
   };
 
-  const newProductToAdd = {
-    id: crypto.randomUUID(),
-    imageSource: newProduct.imageSource,
-    title: newProduct.title,
-    price: newProduct.price,
-    quantity: 0,
-    isAvailable: true,
-    isAdvertised: false,
-  };
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const newProductToAdd = {
+      ...newProduct,
+      id: crypto.randomUUID(),
+    };
 
     addProduct(newProductToAdd);
     setNewProduct(EMPTY_PRODUCT);
