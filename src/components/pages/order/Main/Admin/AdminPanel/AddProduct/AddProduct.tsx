@@ -6,7 +6,7 @@ import OrderContext from "../../../../../../../contexts/OrderContext.ts";
 import { EMPTY_PRODUCT } from "./empty_product.ts";
 import { ImagePreview } from "../ImagePreview.tsx";
 import { SubmitMessage } from "../SubmitMessage.tsx";
-import { addProductFormInputs } from "./inputsTextConfig.tsx";
+import { getAddProductFormInputs } from "./inputsTextConfig.tsx";
 
 export const AddProduct = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -51,6 +51,8 @@ export const AddProduct = () => {
     displaySuccessMessage();
   };
 
+  const inputsTexts = getAddProductFormInputs(newProduct);
+
   return (
     <AddProductStyled action="submit" onSubmit={handleSubmit}>
       <ImagePreview
@@ -58,19 +60,12 @@ export const AddProduct = () => {
         title={newProductToAdd.title}
       />
       <div className="infos-container">
-        {addProductFormInputs.map((input, index) => (
+        {inputsTexts.map((input) => (
           <TextInput
-            key={index}
-            type={input.type}
-            name={input.name}
-            value={String(newProduct[input.name as keyof Product])}
+            {...input}
             onChange={(e) => handleInputChange(e)}
-            placeholder={input.placeholder}
-            Icon={input.Icon}
+            key={input.id}
             $version="minimalist"
-            className="add-product-inputs"
-            step={input.step}
-            lang={input.lang}
           />
         ))}
         <div className="submit-container">
@@ -80,7 +75,7 @@ export const AddProduct = () => {
             Icon=""
             $version="green"
           />
-          <SubmitMessage isSubmitted={isSubmitted} />
+          {isSubmitted && <SubmitMessage />}
         </div>
       </div>
     </AddProductStyled>

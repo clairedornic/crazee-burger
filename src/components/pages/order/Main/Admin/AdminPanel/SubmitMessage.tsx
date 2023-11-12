@@ -2,21 +2,14 @@ import { theme } from "../../../../../../assets/styles/theme/theme-design";
 import { FiCheck } from "react-icons/fi";
 import styled from "styled-components";
 
-interface SubmitMessageProps {
-  isSubmitted: boolean;
-}
-export const SubmitMessage: React.FC<SubmitMessageProps> = ({
-  isSubmitted,
-}) => {
+export const SubmitMessage = () => {
   return (
-    isSubmitted && (
-      <SubmitMessageStyled>
-        <span className="icon-container">
-          <FiCheck />
-        </span>
-        Ajouté avec succès !
-      </SubmitMessageStyled>
-    )
+    <SubmitMessageStyled>
+      <span className="icon-container">
+        <FiCheck />
+      </span>
+      Ajouté avec succès !
+    </SubmitMessageStyled>
   );
 };
 

@@ -4,11 +4,10 @@ import styled, { RuleSet, css } from "styled-components";
 interface TextInputProps {
   type: string;
   name: string;
-  value: string;
+  value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   Icon?: React.ReactNode;
   $version: string;
-  className?: string;
   step?: string;
   lang?: string;
   [key: string]: unknown;
@@ -25,21 +24,16 @@ export const TextInput: React.FC<TextInputProps> = ({
   onChange,
   Icon,
   $version = "normal",
-  className,
-  step,
-  lang,
   ...restProps
 }) => {
   return (
-    <TextInputStyled className={className} $version={$version}>
+    <TextInputStyled $version={$version}>
       {Icon && <div className="icon">{Icon}</div>}
       {type === "number" ? (
         <input
           type={type}
           name={name}
           value={value}
-          step={step}
-          lang={lang}
           onChange={onChange}
           {...restProps}
         />
