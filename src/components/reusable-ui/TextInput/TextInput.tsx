@@ -14,6 +14,12 @@ interface TextInputProps {
   [key: string]: unknown;
 }
 
+interface ExtraStyle {
+  normal: RuleSet<object>;
+  minimalist: RuleSet<object>;
+  [key: string]: RuleSet<object>;
+}
+
 export const TextInput: React.FC<TextInputProps> = ({
   type,
   name,
@@ -79,8 +85,7 @@ const TextInputStyled = styled.div<{ $version: string }>`
     }
   }
 
-  ${(props) =>
-    props.$version === "normal" ? extraNormalStyle : extraMinimalistStyle};
+  ${(props) => extraStyle[props.$version]}
 `;
 
 const extraNormalStyle = css`
@@ -98,3 +103,8 @@ const extraMinimalistStyle = css`
   background-color: ${theme.colors.lightGray};
   padding: 8px 24px;
 `;
+
+const extraStyle: ExtraStyle = {
+  normal: extraNormalStyle,
+  minimalist: extraMinimalistStyle,
+};
