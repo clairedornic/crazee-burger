@@ -1,27 +1,41 @@
 import styled from "styled-components";
-import { PrimaryButton } from "../PrimaryButton/PrimaryButton";
+import { Button } from "../Button/Button";
 import { theme } from "../../../assets/styles/theme/theme-design";
+import { TiDelete } from "react-icons/ti";
 
 interface CardProps {
   title: string;
   leftDescription: number | string;
   imageSource: string;
+  onDelete: () => void;
+  hasDeleteButton: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({
   title,
   leftDescription,
   imageSource,
+  onDelete,
+  hasDeleteButton,
 }) => {
   return (
     <CardStyled>
+      {hasDeleteButton && (
+        <button
+          className="remove"
+          aria-label="delete-button"
+          onClick={onDelete}
+        >
+          <TiDelete className="icon" />
+        </button>
+      )}
       <img src={imageSource} alt={title} />
       <div className="content">
         <p className="title">{title}</p>
         <div className="description">
           <p className="left-description">{leftDescription}</p>
           <div className="right-description">
-            <PrimaryButton type="button" label="Ajouter" />
+            <Button type="button" label="Ajouter" />
           </div>
         </div>
       </div>
@@ -30,6 +44,7 @@ export const Card: React.FC<CardProps> = ({
 };
 
 const CardStyled = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -37,6 +52,32 @@ const CardStyled = styled.div`
   background: ${theme.colors.white};
   box-shadow: ${theme.shadows.medium};
   padding: 50px 25px 30px 25px;
+  height: fit-content;
+
+  .remove {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+
+    .icon {
+      color: ${theme.colors.primary};
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: ${theme.colors.lightRed};
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
 
   img {
     width: 100%;

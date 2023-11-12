@@ -40,7 +40,7 @@ export const RightSide = () => {
         onToggle={handleToggleAdminButton}
         labelIfChecked="Désactiver le mode admi"
         labelIfUnchecked="Activer le mode admin"
-        backgroundcolor={"darkGray"}
+        $bgcolor={"darkGray"}
       />
       <Profile />
       <ToastAdmin />

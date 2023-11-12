@@ -1,20 +1,35 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Card } from "../../../../reusable-ui/Card/Card.tsx";
 import styled from "styled-components";
-import { fakeMenu } from "../../../../../assets/datas/menu.ts";
 import { formatPrice } from "../../../../../utils/maths.ts";
+import OrderContext from "../../../../../contexts/OrderContext";
+import { EmptyMenu } from "./EmptyMenu.tsx";
+
+const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export const Menu = () => {
-  const [products] = useState(fakeMenu);
+  const orderContext = useContext(OrderContext);
+
+  if (!orderContext) {
+    throw new Error("OrderContext must be used within an OrderProvider");
+  }
+
+  const { products, isModeAdmin, removeProduct } = orderContext;
+
+  if (products.length === 0) {
+    return <EmptyMenu />;
+  }
 
   return (
     <MenuStyled>
-      {products.map((product) => (
+      {products.map(({ id, title, price, imageSource }) => (
         <Card
-          key={product.id}
-          title={product.title}
-          leftDescription={formatPrice(product.price)}
-          imageSource={product.imageSource}
+          key={id}
+          title={title}
+          leftDescription={formatPrice(price)}
+          imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
+          onDelete={() => removeProduct(id)}
+          hasDeleteButton={isModeAdmin}
         />
       ))}
     </MenuStyled>

@@ -5,7 +5,7 @@ import { theme } from "../../../assets/styles/theme/theme-design";
 import { Logo } from "../../reusable-ui/Logo/Logo";
 import { TextInput } from "../../reusable-ui/TextInput/TextInput";
 import { BsPersonCircle } from "react-icons/bs";
-import { PrimaryButton } from "../../reusable-ui/PrimaryButton/PrimaryButton";
+import { Button } from "../../reusable-ui/Button/Button";
 import { BsChevronRight } from "react-icons/bs";
 
 export const LoginForm = () => {
@@ -40,16 +40,20 @@ export const LoginForm = () => {
         </div>
         <div className="login-form">
           <TextInput
+            type="text"
+            name="firstname"
             value={firstname}
             onChange={handleChange}
             placeholder={"Entrez votre prénom"}
-            Icon={<BsPersonCircle className="icon-input" />}
+            Icon={<BsPersonCircle />}
+            $version="normal"
+            className="login-inputs"
             required
           />
-          <PrimaryButton
+          <Button
             type="submit"
             label="Accéder à mon espace"
-            Icon={<BsChevronRight className="icon-button" />}
+            Icon={<BsChevronRight />}
           />
         </div>
       </div>
@@ -115,9 +119,5 @@ const Form = styled.form`
     margin-top: 18px;
     width: 100%;
     gap: 18px;
-
-    .icon-button {
-      color: ${theme.colors.white};
-    }
   }
 `;
