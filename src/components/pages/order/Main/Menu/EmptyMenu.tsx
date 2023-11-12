@@ -1,4 +1,4 @@
-import { PrimaryButton } from "../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
+import { Button } from "../../../../reusable-ui/Button/Button.tsx";
 import OrderContext from "../../../../../contexts/OrderContext.ts";
 import { useContext } from "react";
 import styled from "styled-components";
@@ -19,7 +19,7 @@ export const EmptyMenu = () => {
         <div className="admin">
           <p>Le menu est vide ?</p>
           <p>Cliquez ci-dessous pour le réinitialiser</p>
-          <PrimaryButton
+          <Button
             type="button"
             label="Générer de nouveaux produits"
             Icon=""

@@ -1,7 +1,7 @@
 import styled, { RuleSet, css } from "styled-components";
 import { theme } from "../../../assets/styles/theme/theme-design";
 
-interface PrimaryButtonProps {
+interface ButtonProps {
   type: "submit" | "reset" | "button";
   label: string;
   Icon?: React.ReactNode;
@@ -14,7 +14,7 @@ interface ExtraStyle {
   [key: string]: RuleSet<object>;
 }
 
-export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   type,
   label,
   Icon,
@@ -22,13 +22,13 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   onClick,
 }) => {
   return (
-    <PrimaryButtonStyled type={type} $version={$version} onClick={onClick}>
+    <ButtonStyled type={type} $version={$version} onClick={onClick}>
       <label>{label}</label>
       {Icon && <div className="icon">{Icon}</div>}
-    </PrimaryButtonStyled>
+    </ButtonStyled>
   );
 };
-const PrimaryButtonStyled = styled.button<{ $version: string }>`
+const ButtonStyled = styled.button<{ $version: string }>`
   display: flex;
   align-items: center;
   justify-content: center;

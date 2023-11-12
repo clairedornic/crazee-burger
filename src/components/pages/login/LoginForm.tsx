@@ -5,7 +5,7 @@ import { theme } from "../../../assets/styles/theme/theme-design";
 import { Logo } from "../../reusable-ui/Logo/Logo";
 import { TextInput } from "../../reusable-ui/TextInput/TextInput";
 import { BsPersonCircle } from "react-icons/bs";
-import { PrimaryButton } from "../../reusable-ui/PrimaryButton/PrimaryButton";
+import { Button } from "../../reusable-ui/Button/Button";
 import { BsChevronRight } from "react-icons/bs";
 
 export const LoginForm = () => {
@@ -50,7 +50,7 @@ export const LoginForm = () => {
             className="login-inputs"
             required
           />
-          <PrimaryButton
+          <Button
             type="submit"
             label="Accéder à mon espace"
             Icon={<BsChevronRight />}

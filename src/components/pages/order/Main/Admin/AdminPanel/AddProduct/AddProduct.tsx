@@ -4,7 +4,7 @@ import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { FiCheck } from "react-icons/fi";
 import { MdOutlineEuro } from "react-icons/md";
-import { PrimaryButton } from "../../../../../../reusable-ui/PrimaryButton/PrimaryButton.tsx";
+import { Button } from "../../../../../../reusable-ui/Button/Button.tsx";
 import styled from "styled-components";
 import { theme } from "../../../../../../../assets/styles/theme/theme-design.js";
 import OrderContext from "../../../../../../../contexts/OrderContext.ts";
@@ -136,7 +136,7 @@ export const AddProduct = () => {
           />
         ))}
         <div className="submit-container">
-          <PrimaryButton
+          <Button
             type="submit"
             label="Ajouter un nouveau produit au menu"
             Icon=""

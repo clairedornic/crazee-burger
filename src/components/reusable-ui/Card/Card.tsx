@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PrimaryButton } from "../PrimaryButton/PrimaryButton";
+import { Button } from "../Button/Button";
 import { theme } from "../../../assets/styles/theme/theme-design";
 import { TiDelete } from "react-icons/ti";
 
@@ -35,7 +35,7 @@ export const Card: React.FC<CardProps> = ({
         <div className="description">
           <p className="left-description">{leftDescription}</p>
           <div className="right-description">
-            <PrimaryButton type="button" label="Ajouter" />
+            <Button type="button" label="Ajouter" />
           </div>
         </div>
       </div>
