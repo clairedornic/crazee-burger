@@ -85,7 +85,7 @@ const TextInputStyled = styled.div<{ $version: string }>`
     }
   }
 
-  ${(props) => extraStyle[props.$version]}
+  ${({ $version }) => extraStyle[$version]}
 `;
 
 const extraNormalStyle = css`
