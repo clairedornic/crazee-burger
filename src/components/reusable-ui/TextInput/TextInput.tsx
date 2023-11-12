@@ -15,8 +15,6 @@ interface TextInputProps {
 }
 
 interface ExtraStyle {
-  normal: RuleSet<object>;
-  minimalist: RuleSet<object>;
   [key: string]: RuleSet<object>;
 }
 
