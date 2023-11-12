@@ -1,5 +1,6 @@
 import React from "react";
 import { createContext } from "react";
+import { EMPTY_PRODUCT } from "../components/pages/order/Main/Admin/AdminPanel/AddProduct/empty_product";
 
 interface OrderContextProps {
   isModeAdmin: boolean;
@@ -10,6 +11,8 @@ interface OrderContextProps {
   addProduct: (newProduct: Product) => void;
   removeProduct: (productId: string) => void;
   generateNewProducts: () => void;
+  newProduct: Product;
+  setNewProduct: React.Dispatch<React.SetStateAction<Product>>;
 }
 
 const OrderContext = createContext<OrderContextProps | undefined>({
@@ -21,6 +24,8 @@ const OrderContext = createContext<OrderContextProps | undefined>({
   addProduct: () => {},
   removeProduct: () => {},
   generateNewProducts: () => {},
+  newProduct: EMPTY_PRODUCT,
+  setNewProduct: () => {},
 });
 
 export default OrderContext;

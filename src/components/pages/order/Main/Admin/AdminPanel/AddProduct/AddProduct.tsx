@@ -8,6 +8,7 @@ import { Button } from "../../../../../../reusable-ui/Button/Button.tsx";
 import styled from "styled-components";
 import { theme } from "../../../../../../../assets/styles/theme/theme-design.js";
 import OrderContext from "../../../../../../../contexts/OrderContext.ts";
+import { EMPTY_PRODUCT } from "./empty_product.ts";
 
 interface AddProductFormInput {
   id: number;
@@ -19,19 +20,6 @@ interface AddProductFormInput {
   step?: string;
 }
 
-interface InitialValueInputs {
-  name: string;
-  linkImage: string;
-  price: number;
-  [key: string]: string | number;
-}
-
-const EMPTY_PRODUCT: InitialValueInputs = {
-  name: "",
-  linkImage: "",
-  price: 0,
-};
-
 export const AddProduct = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -41,19 +29,19 @@ export const AddProduct = () => {
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const { addProduct } = orderContext;
+  const { addProduct, newProduct, setNewProduct } = orderContext;
 
   const addProductFormInputs: AddProductFormInput[] = [
     {
       id: 1,
-      name: "name",
+      name: "title",
       type: "text",
       placeholder: "Nom du produit (ex: Super Burger)",
       Icon: <FaHamburger />,
     },
     {
       id: 2,
-      name: "linkImage",
+      name: "imageSource",
       type: "url",
       placeholder:
         "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
@@ -69,9 +57,6 @@ export const AddProduct = () => {
       step: "0.01",
     },
   ];
-
-  const [newProduct, setNewProduct] =
-    useState<InitialValueInputs>(EMPTY_PRODUCT);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -89,8 +74,8 @@ export const AddProduct = () => {
 
   const newProductToAdd = {
     id: crypto.randomUUID(),
-    imageSource: newProduct.linkImage,
-    title: newProduct.name,
+    imageSource: newProduct.imageSource,
+    title: newProduct.title,
     price: newProduct.price,
     quantity: 0,
     isAvailable: true,

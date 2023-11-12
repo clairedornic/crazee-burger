@@ -5,11 +5,13 @@ import { Navbar } from "./Navbar/Navbar";
 import { Main } from "./Main/Main";
 import { fakeMenu } from "../../../assets/datas/menu";
 import OrderContext from "../../../contexts/OrderContext";
+import { EMPTY_PRODUCT } from "./Main/Admin/AdminPanel/AddProduct/empty_product";
 
 export const OrderPage = () => {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [products, setProducts] = useState(fakeMenu);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   const addProduct = (newProduct: Product) => {
     setProducts([newProduct, ...products]);
@@ -32,6 +34,8 @@ export const OrderPage = () => {
     addProduct,
     removeProduct,
     generateNewProducts,
+    newProduct,
+    setNewProduct,
   };
 
   return (
