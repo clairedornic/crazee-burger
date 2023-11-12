@@ -1,5 +1,5 @@
 import { theme } from "../../../assets/styles/theme/theme-design";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface TextInputProps {
   type: string;
@@ -7,6 +7,7 @@ interface TextInputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   Icon?: React.ReactNode;
+  $version: string;
   className?: string;
   step?: string;
   lang?: string;
@@ -19,13 +20,14 @@ export const TextInput: React.FC<TextInputProps> = ({
   value,
   onChange,
   Icon,
+  $version = "normal",
   className,
   step,
   lang,
   ...restProps
 }) => {
   return (
-    <TextInputStyled className={className}>
+    <TextInputStyled className={className} $version={$version}>
       {Icon && <div className="icon">{Icon}</div>}
       {type === "number" ? (
         <input
@@ -50,12 +52,13 @@ export const TextInput: React.FC<TextInputProps> = ({
   );
 };
 
-const TextInputStyled = styled.div`
+const TextInputStyled = styled.div<{ $version: string }>`
+  ${(props) =>
+    props.$version === "normal" ? extraNormalStyle : extraMinimalistStyle};
+
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 8px 24px;
-  background-color: ${theme.colors.lightGray};
   border-radius: ${theme.borderRadius.round};
 
   .icon {
@@ -78,4 +81,20 @@ const TextInputStyled = styled.div`
       outline: none;
     }
   }
+`;
+
+const extraNormalStyle = css`
+  background-color: ${theme.colors.white};
+  padding: 18px 24px;
+
+  input {
+    &::placeholder {
+      color: #d3d3d3;
+    }
+  }
+`;
+
+const extraMinimalistStyle = css`
+  background-color: ${theme.colors.lightGray};
+  padding: 8px 24px;
 `;

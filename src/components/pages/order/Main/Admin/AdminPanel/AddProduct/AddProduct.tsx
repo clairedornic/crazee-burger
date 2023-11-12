@@ -129,6 +129,7 @@ export const AddProduct = () => {
             onChange={(e) => handleInputChange(e)}
             placeholder={input.placeholder}
             Icon={input.Icon}
+            $version="minimalist"
             className="add-product-inputs"
             step={input.step}
             lang={input.lang}
