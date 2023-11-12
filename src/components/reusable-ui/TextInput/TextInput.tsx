@@ -53,9 +53,6 @@ export const TextInput: React.FC<TextInputProps> = ({
 };
 
 const TextInputStyled = styled.div<{ $version: string }>`
-  ${(props) =>
-    props.$version === "normal" ? extraNormalStyle : extraMinimalistStyle};
-
   display: flex;
   align-items: center;
   gap: 14px;
@@ -81,6 +78,9 @@ const TextInputStyled = styled.div<{ $version: string }>`
       outline: none;
     }
   }
+
+  ${(props) =>
+    props.$version === "normal" ? extraNormalStyle : extraMinimalistStyle};
 `;
 
 const extraNormalStyle = css`
