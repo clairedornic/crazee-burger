@@ -132,33 +132,6 @@ const AddProductStyled = styled.form`
   align-items: center;
   gap: 20px;
 
-  .img-container {
-    align-self: flex-start;
-    width: 215px;
-    height: 120px;
-
-    .img-frame {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid ${theme.colors.extraLightGray};
-      border-radius: ${theme.borderRadius.round};
-      width: 100%;
-      height: 100%;
-
-      p {
-        font-size: 16px;
-        color: ${theme.colors.mediumGray};
-      }
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-  }
-
   .infos-container {
     display: flex;
     flex-direction: column;
