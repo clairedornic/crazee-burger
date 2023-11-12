@@ -50,10 +50,7 @@ export const AddProduct = () => {
 
   return (
     <AddProductStyled action="submit" onSubmit={handleSubmit}>
-      <ImagePreview
-        source={newProductToAdd.imageSource}
-        title={newProductToAdd.title}
-      />
+      <ImagePreview source={newProduct.imageSource} title={newProduct.title} />
       <div className="infos-container">
         {inputsTexts.map((input) => (
           <TextInput
