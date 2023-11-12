@@ -6,7 +6,7 @@ import OrderContext from "../../../../../../../contexts/OrderContext.ts";
 import { EMPTY_PRODUCT } from "./empty_product.ts";
 import { ImagePreview } from "../ImagePreview.tsx";
 import { SubmitMessage } from "../SubmitMessage.tsx";
-import { addProductFormInputs } from "./inputsTextConfig.ts";
+import { addProductFormInputs } from "./inputsTextConfig.tsx";
 
 export const AddProduct = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
