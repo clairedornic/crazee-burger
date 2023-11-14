@@ -1,3 +1,9 @@
+import { NoProductSelected } from "./NoProductSelected";
+
 export const UpdateProduct = () => {
-  return <div>UpdateProduct</div>;
+  return (
+    <div>
+      <NoProductSelected />
+    </div>
+  );
 };
