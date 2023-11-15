@@ -9,6 +9,7 @@ interface CardProps {
   imageSource: string;
   onDelete: () => void;
   hasDeleteButton: boolean;
+  isHoverable: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -17,6 +18,7 @@ export const Card: React.FC<CardProps> = ({
   imageSource,
   onDelete,
   hasDeleteButton,
+  isHoverable,
 }) => {
   return (
     <CardStyled>

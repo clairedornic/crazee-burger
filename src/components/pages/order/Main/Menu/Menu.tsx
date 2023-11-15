@@ -30,6 +30,7 @@ export const Menu = () => {
           imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
           onDelete={() => removeProduct(id)}
           hasDeleteButton={isModeAdmin}
+          isHoverable={isModeAdmin}
         />
       ))}
     </MenuStyled>
