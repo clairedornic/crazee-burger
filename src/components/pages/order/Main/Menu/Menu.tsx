@@ -20,6 +20,8 @@ export const Menu = () => {
     return <EmptyMenu />;
   }
 
+  const updateProduct = () => {};
+
   return (
     <MenuStyled>
       {products.map(({ id, title, price, imageSource }) => (
@@ -31,6 +33,7 @@ export const Menu = () => {
           onDelete={() => removeProduct(id)}
           hasDeleteButton={isModeAdmin}
           isHoverable={isModeAdmin}
+          onClick={updateProduct}
         />
       ))}
     </MenuStyled>

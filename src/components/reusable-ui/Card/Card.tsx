@@ -10,6 +10,7 @@ interface CardProps {
   onDelete: () => void;
   hasDeleteButton: boolean;
   isHoverable: boolean;
+  onClick: () => void;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -19,9 +20,10 @@ export const Card: React.FC<CardProps> = ({
   onDelete,
   hasDeleteButton,
   isHoverable,
+  onClick,
 }) => {
   return (
-    <CardStyled className={isHoverable ? "is-hoverable" : ""}>
+    <CardStyled onClick={onClick} className={isHoverable ? "is-hoverable" : ""}>
       <div className="card">
         {hasDeleteButton && (
           <button
