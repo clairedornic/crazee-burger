@@ -14,13 +14,17 @@ export const Menu = () => {
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const { products, isModeAdmin, removeProduct } = orderContext;
+  const { products, isModeAdmin, removeProduct, updateProduct } = orderContext;
 
   if (products.length === 0) {
     return <EmptyMenu />;
   }
 
-  const updateProduct = () => {};
+  const handleUpdateProduct = (productId: string) => {
+    if (isModeAdmin) {
+      updateProduct(productId);
+    }
+  };
 
   return (
     <MenuStyled>
@@ -33,7 +37,7 @@ export const Menu = () => {
           onDelete={() => removeProduct(id)}
           hasDeleteButton={isModeAdmin}
           isHoverable={isModeAdmin}
-          onClick={updateProduct}
+          onClick={() => handleUpdateProduct(id)}
         />
       ))}
     </MenuStyled>
