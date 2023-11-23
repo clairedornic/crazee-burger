@@ -11,6 +11,7 @@ interface OrderContextProps {
   addProduct: (newProduct: Product) => void;
   removeProduct: (productId: string) => void;
   updateProduct: (productId: string) => void;
+  getProductByID: (productId: string) => Product;
   generateNewProducts: () => void;
   newProduct: Product;
   setNewProduct: React.Dispatch<React.SetStateAction<Product>>;
@@ -29,6 +30,7 @@ const OrderContext = createContext<OrderContextProps | undefined>({
   addProduct: () => {},
   removeProduct: () => {},
   updateProduct: () => {},
+  getProductByID: (productID: string) => EMPTY_PRODUCT,
   generateNewProducts: () => {},
   newProduct: EMPTY_PRODUCT,
   setNewProduct: () => {},
