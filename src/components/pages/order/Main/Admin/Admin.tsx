@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { AdminPanel } from "./AdminPanel/AdminPanel";
 import { AdminTabs } from "./AdminTabs";
+import OrderContext from "../../../../../contexts/OrderContext";
 
 export const Admin = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const orderContext = useContext(OrderContext);
 
+  if (!orderContext) {
+    throw new Error("OrderContext must be used within an OrderProvider");
+  }
+
+  const { isPanelAdminCollapsed, setIsPanelAdminCollapsed } = orderContext;
   return (
     <AdminStyled>
-      <AdminTabs isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
-      {!isCollapsed && <AdminPanel />}
+      <AdminTabs
+        isCollapsed={isPanelAdminCollapsed}
+        setIsCollapsed={setIsPanelAdminCollapsed}
+      />
+      {!isPanelAdminCollapsed && <AdminPanel />}
     </AdminStyled>
   );
 };

@@ -12,6 +12,7 @@ export const OrderPage = () => {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [products, setProducts] = useState(fakeMenu);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [isPanelAdminCollapsed, setIsPanelAdminCollapsed] = useState(false);
 
   const addProduct = (newProduct: Product) => {
     setProducts([newProduct, ...products]);
@@ -19,6 +20,11 @@ export const OrderPage = () => {
 
   const removeProduct = (productId: string) => {
     setProducts(products.filter((product) => product.id !== productId));
+  };
+
+  const updateProduct = (productId: string) => {
+    console.log("product id : " + productId);
+    // setProducts(products.filter((product) => product.id !== productId));
   };
 
   const generateNewProducts = () => {
@@ -33,9 +39,12 @@ export const OrderPage = () => {
     products,
     addProduct,
     removeProduct,
+    updateProduct,
     generateNewProducts,
     newProduct,
     setNewProduct,
+    isPanelAdminCollapsed,
+    setIsPanelAdminCollapsed,
   };
 
   return (

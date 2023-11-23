@@ -10,9 +10,12 @@ interface OrderContextProps {
   products: Array<Product>;
   addProduct: (newProduct: Product) => void;
   removeProduct: (productId: string) => void;
+  updateProduct: (productId: string) => void;
   generateNewProducts: () => void;
   newProduct: Product;
   setNewProduct: React.Dispatch<React.SetStateAction<Product>>;
+  isPanelAdminCollapsed: boolean;
+  setIsPanelAdminCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const OrderContext = createContext<OrderContextProps | undefined>({
@@ -23,9 +26,12 @@ const OrderContext = createContext<OrderContextProps | undefined>({
   products: [],
   addProduct: () => {},
   removeProduct: () => {},
+  updateProduct: () => {},
   generateNewProducts: () => {},
   newProduct: EMPTY_PRODUCT,
   setNewProduct: () => {},
+  isPanelAdminCollapsed: false,
+  setIsPanelAdminCollapsed: () => {},
 });
 
 export default OrderContext;
