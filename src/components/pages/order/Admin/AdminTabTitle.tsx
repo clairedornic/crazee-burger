@@ -12,7 +12,6 @@ export const AdminTabTitle: React.FC<AdminTabTitleProps> = ({
   setSelectedTab,
 }) => {
   const handleChangeOfTab = () => {
-    console.log(tabKey);
     setSelectedTab(tabKey);
   };
   return (
