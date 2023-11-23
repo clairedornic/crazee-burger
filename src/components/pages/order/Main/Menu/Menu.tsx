@@ -14,7 +14,15 @@ export const Menu = () => {
     throw new Error("OrderContext must be used within an OrderProvider");
   }
 
-  const { products, isModeAdmin, removeProduct, updateProduct } = orderContext;
+  const {
+    products,
+    isModeAdmin,
+    removeProduct,
+    updateProduct,
+    isPanelAdminCollapsed,
+    setIsPanelAdminCollapsed,
+    setCurrentTabSelected,
+  } = orderContext;
 
   if (products.length === 0) {
     return <EmptyMenu />;
@@ -22,6 +30,8 @@ export const Menu = () => {
 
   const handleUpdateProduct = (productId: string) => {
     if (isModeAdmin) {
+      setCurrentTabSelected("edit");
+      isPanelAdminCollapsed && setIsPanelAdminCollapsed(false);
       updateProduct(productId);
     }
   };
