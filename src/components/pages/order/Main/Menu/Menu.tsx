@@ -22,6 +22,7 @@ export const Menu = () => {
     isPanelAdminCollapsed,
     setIsPanelAdminCollapsed,
     setCurrentTabSelected,
+    setProductSelected,
   } = orderContext;
 
   if (products.length === 0) {
@@ -30,6 +31,7 @@ export const Menu = () => {
 
   const handleUpdateProduct = (productId: string) => {
     if (isModeAdmin) {
+      setProductSelected(productId);
       setCurrentTabSelected("edit");
       isPanelAdminCollapsed && setIsPanelAdminCollapsed(false);
       updateProduct(productId);
