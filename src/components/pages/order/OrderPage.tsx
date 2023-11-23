@@ -15,6 +15,10 @@ export const OrderPage = () => {
   const [isPanelAdminCollapsed, setIsPanelAdminCollapsed] = useState(false);
   const [productSelected, setProductSelected] = useState("");
 
+  const getProductByID = (productId: string) => {
+    return products.find((product) => product.id === productId);
+  };
+
   const addProduct = (newProduct: Product) => {
     setProducts([newProduct, ...products]);
   };
@@ -25,6 +29,7 @@ export const OrderPage = () => {
 
   const updateProduct = (productId: string) => {
     console.log("product id : " + productId);
+    console.log(getProductByID(productId));
     // setProducts(products.filter((product) => product.id !== productId));
   };
 
@@ -41,6 +46,7 @@ export const OrderPage = () => {
     addProduct,
     removeProduct,
     updateProduct,
+    getProductByID,
     generateNewProducts,
     newProduct,
     setNewProduct,
