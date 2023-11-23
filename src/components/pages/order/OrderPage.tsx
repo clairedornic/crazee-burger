@@ -13,6 +13,7 @@ export const OrderPage = () => {
   const [products, setProducts] = useState(fakeMenu);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [isPanelAdminCollapsed, setIsPanelAdminCollapsed] = useState(false);
+  const [productSelected, setProductSelected] = useState("");
 
   const addProduct = (newProduct: Product) => {
     setProducts([newProduct, ...products]);
@@ -45,6 +46,8 @@ export const OrderPage = () => {
     setNewProduct,
     isPanelAdminCollapsed,
     setIsPanelAdminCollapsed,
+    productSelected,
+    setProductSelected,
   };
 
   return (

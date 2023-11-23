@@ -16,6 +16,8 @@ interface OrderContextProps {
   setNewProduct: React.Dispatch<React.SetStateAction<Product>>;
   isPanelAdminCollapsed: boolean;
   setIsPanelAdminCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
+  productSelected: string;
+  setProductSelected: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const OrderContext = createContext<OrderContextProps | undefined>({
@@ -32,6 +34,8 @@ const OrderContext = createContext<OrderContextProps | undefined>({
   setNewProduct: () => {},
   isPanelAdminCollapsed: false,
   setIsPanelAdminCollapsed: () => {},
+  productSelected: "",
+  setProductSelected: () => {},
 });
 
 export default OrderContext;
