@@ -22,6 +22,7 @@ export const Menu = () => {
     isPanelAdminCollapsed,
     setIsPanelAdminCollapsed,
     setCurrentTabSelected,
+    productSelected,
     setProductSelected,
   } = orderContext;
 
@@ -48,6 +49,7 @@ export const Menu = () => {
           imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
           onDelete={() => removeProduct(id)}
           hasDeleteButton={isModeAdmin}
+          isSelected={productSelected === id ? true : false}
           isHoverable={isModeAdmin}
           onClick={() => handleUpdateProduct(id)}
         />

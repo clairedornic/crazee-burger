@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Button } from "../Button/Button";
 import { theme } from "../../../assets/styles/theme/theme-design";
 import { TiDelete } from "react-icons/ti";
-import { useState } from "react";
 
 interface CardProps {
   title: string;
@@ -10,6 +9,7 @@ interface CardProps {
   imageSource: string;
   onDelete: () => void;
   hasDeleteButton: boolean;
+  isSelected: boolean;
   isHoverable: boolean;
   onClick: () => void;
 }
@@ -20,16 +20,10 @@ export const Card: React.FC<CardProps> = ({
   imageSource,
   onDelete,
   hasDeleteButton,
+  isSelected,
   isHoverable,
   onClick,
 }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
-  const handleClickOnCard = () => {
-    setIsSelected(true);
-    onClick();
-  };
-
   const getStateCard = () => {
     if (isHoverable && isSelected) {
       return "is-selected is-hoverable";
@@ -43,7 +37,7 @@ export const Card: React.FC<CardProps> = ({
   };
 
   return (
-    <CardStyled onClick={handleClickOnCard} className={getStateCard()}>
+    <CardStyled onClick={onClick} className={getStateCard()}>
       <div className="card">
         {hasDeleteButton && (
           <button
@@ -92,6 +86,12 @@ const CardStyled = styled.div`
             color: ${theme.colors.white};
             transition: all 0.3s ease-in-out;
           }
+        }
+      }
+
+      .remove {
+        .icon {
+          color: ${theme.colors.white};
         }
       }
     }
