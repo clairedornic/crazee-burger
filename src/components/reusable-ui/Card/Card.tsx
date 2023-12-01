@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Button } from "../Button/Button";
 import { theme } from "../../../assets/styles/theme/theme-design";
 import { TiDelete } from "react-icons/ti";
+import { useState } from "react";
 
 interface CardProps {
   title: string;
@@ -22,8 +23,27 @@ export const Card: React.FC<CardProps> = ({
   isHoverable,
   onClick,
 }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleClickOnCard = () => {
+    setIsSelected(true);
+    onClick();
+  };
+
+  const getStateCard = () => {
+    if (isHoverable && isSelected) {
+      return "is-selected is-hoverable";
+    } else if (isSelected) {
+      return "is-selected";
+    } else if (isHoverable) {
+      return "is-hoverable";
+    } else {
+      return "";
+    }
+  };
+
   return (
-    <CardStyled onClick={onClick} className={isHoverable ? "is-hoverable" : ""}>
+    <CardStyled onClick={handleClickOnCard} className={getStateCard()}>
       <div className="card">
         {hasDeleteButton && (
           <button
@@ -52,6 +72,30 @@ export const Card: React.FC<CardProps> = ({
 const CardStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
   transition: all 0.3s ease-in-out;
+
+  &.is-selected {
+    .card {
+      background-color: ${theme.colors.primary};
+      transition: all 0.3s ease-in-out;
+      .content .description {
+        .left-description {
+          color: ${theme.colors.white};
+        }
+
+        button {
+          background-color: ${theme.colors.white};
+          color: ${theme.colors.primary};
+
+          &:hover {
+            border: 1px solid ${theme.colors.white};
+            background-color: transparent;
+            color: ${theme.colors.white};
+            transition: all 0.3s ease-in-out;
+          }
+        }
+      }
+    }
+  }
 
   &.is-hoverable:hover {
     box-shadow: 0px 0px 8px 0px #ff9a23;
